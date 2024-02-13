@@ -1,3 +1,7 @@
+// config
+export 'config/config.dart';
+export 'config/log_config.dart';
+export 'config/shared_config.dart';
 // constants
 export 'constants/duration_constants.dart';
 export 'constants/env_constants.dart';
@@ -13,12 +17,16 @@ export 'constants/ui/device_constants.dart';
 export 'constants/ui/paging_constants.dart';
 export 'constants/ui/ui_constants.dart';
 export 'constants/url_constants.dart';
+// di
+export 'di/di.dart';
 //exception
 export 'exception/base/app_exception.dart';
 export 'exception/base/app_exception_wrapper.dart';
 export 'exception/base/exception_mapper.dart';
 export 'exception/parse/parse_exception.dart';
 export 'exception/validation/validation_exception.dart';
+// helper
+export 'helper/app_info.dart';
 // mixin
 export 'mixin/log_mixin.dart';
 // model
