@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer' as dev;
 
+import '../shared.dart';
+
 class Log {
   const Log._();
 
