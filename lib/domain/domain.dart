@@ -1,6 +1,6 @@
 // entity
 export 'entity/app_notification.dart';
-export 'entity/base/load_more.dart';
+export 'entity/base/load_more_output.dart';
 export 'entity/base/paged_list.dart';
 export 'entity/enum/enum.dart';
 export 'entity/image_url.dart';
@@ -16,3 +16,4 @@ export 'repository/auth_repository.dart';
 //usecase
 export 'usecase/app_usecase.dart';
 export 'usecase/auth_usecase.dart';
+export 'usecase/base/base_load_more_use_case.dart';
