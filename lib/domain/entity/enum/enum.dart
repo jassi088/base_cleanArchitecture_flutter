@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../../../shared/shared.dart';
+// import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum InitialAppRoute { login, main }
 
+// @JsonEnum()
 enum Gender {
   male(ServerRequestResponseConstants.male),
   female(ServerRequestResponseConstants.female),
@@ -14,6 +15,8 @@ enum Gender {
   final int serverValue;
 
   static const defaultValue = unknown;
+
+  String toJson() => serverValue.toString();
 }
 
 // enum LanguageCode {

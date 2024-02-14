@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // import '../../domain.dart';
 
 part 'user.freezed.dart';
+part 'user.g.dart';
 
 // @freezed
 // class User with _$User {
@@ -29,6 +30,7 @@ part 'user.freezed.dart';
 @freezed
 class User with _$User {
   const factory User({
+    // @JsonKey(name: 'code') String? code,
     @Default(User.defaultCode) String code,
     @Default(User.defaultName) String name,
     @Default(User.defaultToken) String token,
@@ -45,4 +47,6 @@ class User with _$User {
   static const defaultRole = '';
   static const defaultPhone = '';
   static const defaultExpirationTime = 0;
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }
