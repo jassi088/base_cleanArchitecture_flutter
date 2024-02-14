@@ -31,6 +31,8 @@ abstract class AppRepository {
 
   Future<User> getMe();
 
+  Future<void> logout();
+
   /// ----- Store objectbox(*Local database*) -----
   int putLocalUser(User user);
 

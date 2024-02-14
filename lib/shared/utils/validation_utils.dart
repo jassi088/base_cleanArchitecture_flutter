@@ -1,38 +1,10 @@
 class ValidationUtils {
   const ValidationUtils._();
 
-  static bool isValidPassword(String password) {
-    return password.isNotEmpty;
-  }
-
-  /// Check if a string is empty phone number.
+  /// Check if a string is empty value.
   /// Return true if it is not empty.
-  static bool isEmptyPhoneNumber(String phoneNumber) {
-    if (phoneNumber.isEmpty) {
-      return false;
-    }
-
-    return true;
-  }
-
-  /// Check if a string is valid phone number.
-  /// Return true if it is valid.
-  static bool isValidPhoneNumber(String phoneNumber) {
-    if (!RegExp(r'(^(?:[+0]9)?[0-9]{10,11}$)').hasMatch(phoneNumber.trim())) {
-      return false;
-    }
-
-    return true;
-  }
-
-  /// Check if a string is empty email.
-  /// Return true if it is valid.
-  static bool isEmptyEmail(String email) {
-    if (email.isEmpty) {
-      return false;
-    }
-
-    return true;
+  static bool isNotEmpty(String value) {
+    return value.isNotEmpty;
   }
 
   /// Check if a string is a valid email.
@@ -45,10 +17,10 @@ class ValidationUtils {
     return true;
   }
 
-  /// Check if a string is empty date time.
+  /// Check if a string is valid phone number.
   /// Return true if it is valid.
-  static bool isEmptyDateTime(String dateTime) {
-    if (dateTime.isEmpty) {
+  static bool isValidPhoneNumber(String phoneNumber) {
+    if (!RegExp(r'(^(?:[+0]9)?[0-9]{10,11}$)').hasMatch(phoneNumber.trim())) {
       return false;
     }
 
