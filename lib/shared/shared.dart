@@ -23,6 +23,8 @@ export 'di/di.dart';
 export 'exception/base/app_exception.dart';
 export 'exception/base/app_exception_wrapper.dart';
 export 'exception/base/exception_mapper.dart';
+export 'exception/network/api_exception.dart';
+export 'exception/network/network_exception.dart';
 export 'exception/parse/parse_exception.dart';
 export 'exception/validation/validation_exception.dart';
 // helper

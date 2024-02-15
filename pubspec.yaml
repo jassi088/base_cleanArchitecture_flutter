@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dartx: ^1.2.0
   device_info_plus: ^9.0.2
+  dio: ^5.4.0
   encrypted_shared_preferences: ^3.0.1
 
   flutter:
