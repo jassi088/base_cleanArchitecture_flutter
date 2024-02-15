@@ -51,10 +51,6 @@ class AppPreferences {
     return User.fromJson(json.decode(user));
   }
 
-  Future<bool> saveLanguageCode(String languageCode) {
-    return _sharedPreference.setString(SharedPreferenceKeys.languageCode, languageCode);
-  }
-
   Future<bool> saveIsFirstLogin(bool isFirstLogin) {
     return _sharedPreference.setBool(SharedPreferenceKeys.isFirstLogin, isFirstLogin);
   }
@@ -75,10 +71,6 @@ class AppPreferences {
     return _sharedPreference.setString(SharedPreferenceKeys.currentUser, json.encode(user));
   }
 
-  Future<bool> saveIsDarkMode(bool isDarkMode) {
-    return _sharedPreference.setBool(SharedPreferenceKeys.isDarkMode, isDarkMode);
-  }
-
   // Future<bool> saveDeviceToken(String token) {
   //   return _sharedPreference.setString(SharedPreferenceKeys.deviceToken, token);
   // }
@@ -89,5 +81,13 @@ class AppPreferences {
       _sharedPreference.remove(SharedPreferenceKeys.accessToken),
       _sharedPreference.remove(SharedPreferenceKeys.refreshToken),
     ]);
+  }
+
+  Future<bool> saveIsDarkMode(bool isDarkMode) {
+    return _sharedPreference.setBool(SharedPreferenceKeys.isDarkMode, isDarkMode);
+  }
+
+  Future<bool> saveLanguageCode(String languageCode) {
+    return _sharedPreference.setString(SharedPreferenceKeys.languageCode, languageCode);
   }
 }

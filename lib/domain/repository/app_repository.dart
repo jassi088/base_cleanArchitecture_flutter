@@ -34,15 +34,15 @@ abstract class AppRepository {
   Future<void> logout();
 
   /// ----- Store objectbox(*Local database*) -----
-  int putLocalUser(User user);
+  // int putLocalUser(User user);
 
-  Stream<List<User>> getLocalUsersStream();
+  // Stream<List<User>> getLocalUsersStream();
 
-  List<User> getLocalUsers();
+  // List<User> getLocalUsers();
 
-  User? getLocalUser(int id);
+  // User? getLocalUser(int id);
 
-  bool deleteImageUrl(int id);
+  // bool deleteImageUrl(int id);
 
-  int deleteAllUsersAndImageUrls();
+  // int deleteAllUsersAndImageUrls();
 }
