@@ -3,7 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../shared/shared.dart';
+// import '../../shared/shared.dart';
 import '../data.dart';
 import 'di.config.dart';
 
@@ -16,8 +16,8 @@ abstract class ServiceModule {
   @prod
   Dio dioProd() => NetworkingFactory.createDio(
         interceptors: [
-          HeaderInterceptor(GetIt.instance.get<AppInfo>()),
-          AccessTokenInterceptor(GetIt.instance.get<AppPreferences>()),
+          // HeaderInterceptor(GetIt.instance.get<AppInfo>()),
+          // AccessTokenInterceptor(GetIt.instance.get<AppPreferences>()),
         ],
       );
 }

@@ -15,6 +15,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response = await _authApi.login(username: username, password: password);
       await _appPreferences.saveAccessToken(response.token);
+      print('✔✔ ${response.toString()}');
     } catch (e) {
       throw DioExceptionMapper().map(e);
     }

@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
-void main() {
+import 'domain/domain.dart';
+import 'initializer/app_initializer.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
+  await AppInitializer().init();
+  final AuthUsecase _authUsecase = AuthUsecase(GetIt.instance.get<AuthRepository>());
+  await _authUsecase.loginUsecase(username: 'admin', password: '123456');
+
   runApp(const MyApp());
 }
 
