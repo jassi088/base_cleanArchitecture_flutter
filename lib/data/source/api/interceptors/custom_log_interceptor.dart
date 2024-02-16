@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
-import '../../../../../shared/shared.dart';
-import 'base_interceptor.dart';
+import '../../../../shared/shared.dart';
+import 'base/base_interceptor.dart';
 
 class CustomLogInterceptor extends BaseInterceptor {
   CustomLogInterceptor({

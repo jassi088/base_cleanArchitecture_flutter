@@ -29,6 +29,7 @@ dependencies:
   # objectbox_flutter_libs: ^2.5.0
   json_annotation: ^4.8.1
   package_info_plus: ^5.0.1
+  retrofit: ^4.1.0
   shared_preferences: ^2.2.2
   url_launcher: 6.0.17
   
@@ -42,6 +43,7 @@ dev_dependencies:
   freezed_annotation: ^2.4.1
   injectable_generator: ^2.4.1
   json_serializable: ^6.7.1
+  retrofit_generator: ^8.1.0
   # objectbox_generator: ^2.5.0
 
 # objectbox:
