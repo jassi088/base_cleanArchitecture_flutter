@@ -13,7 +13,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> login({required String username, required String password}) async {
     try {
-      final response = await _authApi.login(username: username, password: password);
+      final response = await _authApi.login({'username': username, 'password': password});
       await _appPreferences.saveAccessToken(response.token);
       print('✔✔ ${response.toString()}');
     } catch (e) {

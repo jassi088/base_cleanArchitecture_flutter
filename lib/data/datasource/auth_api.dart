@@ -14,15 +14,12 @@ class AuthApiConstant {
   // static const String logout = 'auth/logout';
 }
 
-@RestApi()
 @injectable
+@RestApi()
 abstract class AuthApi {
   @factoryMethod
   factory AuthApi(Dio dio) = _AuthApi;
 
   @POST(AuthApiConstant.login)
-  Future<User> login({
-    @Query('username') required String username,
-    @Query('password') required String password,
-  });
+  Future<User> login(@Body() Map<String, dynamic> body);
 }

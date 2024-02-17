@@ -6,8 +6,7 @@ abstract class BaseInterceptor extends InterceptorsWrapper {
   static const connectivityPriority = 99; // add second
   static const basicAuthPriority = 40;
   static const refreshTokenPriority = 30;
-  static const accessTokenPriority = 20;
-  static const headerPriority = 19;
+  static const apiTokenPriority = 20;
   static const customLogPriority = 1; // add last
 
   /// higher, add first

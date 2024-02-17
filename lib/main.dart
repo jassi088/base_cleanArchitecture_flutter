@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 import 'domain/domain.dart';
 import 'initializer/app_initializer.dart';
+import 'initializer/di/di.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
   await AppInitializer().init();
-  final AuthUsecase _authUsecase = AuthUsecase(GetIt.instance.get<AuthRepository>());
-  await _authUsecase.loginUsecase(username: 'admin', password: '123456');
 
   runApp(const MyApp());
 }
@@ -66,6 +64,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  Future<void> getData() async {
+    print('✔ Đã qua tới đây');
+    final AuthUsecase _authUsecase = getIt.get<AuthUsecase>();
+    await _authUsecase.loginUsecase(username: 'admin', password: '123456');
+  }
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
 
   void _incrementCounter() {
     setState(() {

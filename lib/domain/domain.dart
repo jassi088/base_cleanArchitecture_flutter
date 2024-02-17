@@ -1,7 +1,3 @@
-// config
-export 'config/domain_config.dart';
-// di
-export 'di/di.dart';
 // entity
 export 'entity/app_notification.dart';
 export 'entity/base/load_more_output.dart';

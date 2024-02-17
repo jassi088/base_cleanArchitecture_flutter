@@ -1,6 +1,7 @@
-import '../data/data.dart';
-import '../domain/domain.dart';
+import 'package:get_it/get_it.dart';
+
 import '../shared/shared.dart';
+import 'config/initializer_config.dart';
 
 abstract class ApplicationConfig extends Config {}
 
@@ -12,9 +13,9 @@ class AppInitializer {
 
   Future<void> init() async {
     EnvConstants.init();
-    await SharedConfig.getInstance().init();
-    await DataConfig.getInstance().init();
-    await DomainConfig.getInstance().init();
+    await InitializerConfig.getInstance().init();
+    await GetIt.instance.get<AppInfo>().init();
+
     // await _applicationConfig.init();
   }
 }

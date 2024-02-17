@@ -3,8 +3,9 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// import '../../shared/shared.dart';
-import '../data.dart';
+import '../../data/data.dart';
+
+import '../../shared/shared.dart';
 import 'di.config.dart';
 
 @module
@@ -14,10 +15,10 @@ abstract class ServiceModule {
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
 
   @prod
-  Dio dioProd() => NetworkingFactory.createDio(
+  Dio dioProd(SharedPreferences sharedPreferences) => NetworkingFactory.createDio(
+        options: BaseOptions(baseUrl: UrlConstants.appApiBaseUrl),
         interceptors: [
-          // HeaderInterceptor(GetIt.instance.get<AppInfo>()),
-          // AccessTokenInterceptor(GetIt.instance.get<AppPreferences>()),
+          ApiTokenInterceptor(getIt.get<AppInfo>(), getIt.get<AppPreferences>()),
         ],
       );
 }

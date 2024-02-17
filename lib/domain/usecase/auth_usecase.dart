@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 import '../../shared/shared.dart';
 import '../domain.dart';
 
-@Injectable()
+@injectable
 class AuthUsecase {
   final AuthRepository _authRepository;
 
