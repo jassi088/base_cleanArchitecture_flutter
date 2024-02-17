@@ -67,8 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> getData() async {
     print('✔ Đã qua tới đây');
-    final AuthUsecase _authUsecase = getIt.get<AuthUsecase>();
-    await _authUsecase.loginUsecase(username: 'admin', password: '123456');
+    await getIt.get<AuthUsecase>().loginUsecase(username: 'admin', password: '12345');
   }
 
   @override
