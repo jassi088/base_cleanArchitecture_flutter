@@ -18,7 +18,10 @@ abstract class ServiceModule {
   Dio dioProd(SharedPreferences sharedPreferences) => NetworkingFactory.createDio(
         options: BaseOptions(baseUrl: UrlConstants.appApiBaseUrl),
         interceptors: [
-          ApiTokenInterceptor(getIt.get<AppInfo>(), getIt.get<AppPreferences>()),
+          ApiTokenInterceptor(
+            getIt.get<AppInfo>(),
+            getIt.get<AppPreferences>(),
+          ),
         ],
       );
 }

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,9 +18,9 @@ class ApiTokenInterceptor extends BaseInterceptor {
   @override
   Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     // Xử lý HeaderInterceptor
-    // final userAgentValue = userAgentClientHintsHeader();
-    // options.headers[ServerRequestResponseConstants.userAgentKey] = userAgentValue;
-    // options.headers.addAll(_headers);
+    final userAgentValue = userAgentClientHintsHeader();
+    options.headers[ServerRequestResponseConstants.userAgentKey] = userAgentValue;
+    options.headers.addAll(_headers);
 
     // Xử lý AccessTokenInterceptor
     final token = await _appPreferences.accessToken;
@@ -44,7 +42,8 @@ class ApiTokenInterceptor extends BaseInterceptor {
     handler.next(options);
   }
 
-  // String userAgentClientHintsHeader() {
-  //   return '${Platform.operatingSystem} - ${_appInfo.versionName}(${_appInfo.versionCode})';
-  // }
+  String userAgentClientHintsHeader() {
+    // return '${Platform.operatingSystem} - ${_appInfo.versionName}(${_appInfo.versionCode})';
+    return '${_appInfo.versionName}(${_appInfo.versionCode})';
+  }
 }

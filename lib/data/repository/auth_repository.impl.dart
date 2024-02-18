@@ -15,7 +15,6 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       final response = await _authApi.login({'username': username, 'password': password});
       await _appPreferences.saveAccessToken(response.token);
-      print('✔✔ ${response.toString()}');
     } catch (e) {
       throw DioExceptionMapper().map(e);
     }
@@ -45,25 +44,4 @@ class AuthRepositoryImpl implements AuthRepository {
   }) {
     throw UnimplementedError();
   }
-
-  // @override
-  // Future<LoginResponse> login(String code) async {
-  //   final res = await _authApi.login(
-  //     code: code,
-  //     redirectUrl: Configurations.callbackUrl,
-  //   );
-  //   return res.data;
-  // }
-
-  // @override
-  // Future<User> getCurrentUser() async {
-  //   final res = await _authApi.getCurrentUser();
-  //   return res.data;
-  // }
-
-  // @override
-  // Future<bool> logout() async {
-  //   final res = await _authApi.logout();
-  //   return res.success;
-  // }
 }
