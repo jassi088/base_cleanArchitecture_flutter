@@ -19,6 +19,8 @@ class AppPreferences {
     return _sharedPreference.getBool(SharedPreferenceKeys.isDarkMode) ?? false;
   }
 
+  bool get isFirstLogin => _sharedPreference.getBool(SharedPreferenceKeys.isFirstLogin) ?? true;
+
   // String get deviceToken {
   //   return _sharedPreference.getString(SharedPreferenceKeys.deviceToken) ?? '';
   // }
