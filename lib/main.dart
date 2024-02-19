@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> getData() async {
     try {
-      await getIt.get<AuthUsecase>().loginUsecase(username: 'admin', password: '12345');
+      await getIt.get<AuthUsecase>().loginUsecase(username: 'admin', password: '123456');
     } catch (e) {
       print('❗❗Đã bắt lỗi nè ${e.toString()}');
     }
