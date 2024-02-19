@@ -14,8 +14,6 @@ class NetworkExceptions with _$NetworkExceptions {
 
   const factory NetworkExceptions.methodNotAllowed() = MethodNotAllowed;
 
-  const factory NetworkExceptions.notAcceptable() = NotAcceptable;
-
   const factory NetworkExceptions.requestTimeout() = RequestTimeout;
 
   const factory NetworkExceptions.sendTimeout() = SendTimeout;
