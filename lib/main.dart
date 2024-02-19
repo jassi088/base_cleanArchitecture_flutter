@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'domain/domain.dart';
@@ -43,7 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       await getIt.get<AuthUsecase>().loginUsecase(username: 'admin', password: '123456');
     } catch (e) {
-      print('❗❗Đã bắt lỗi nè ${e.toString()}');
+      if (kDebugMode) {
+        print('❗❗Đã bắt lỗi nè ${e.toString()}');
+      }
     }
   }
 
