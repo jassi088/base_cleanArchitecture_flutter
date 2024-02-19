@@ -14,6 +14,4 @@ class AppPopupInfo with _$AppPopupInfo {
     @Default('') String message,
     Function()? onRetryPressed,
   }) = _ErrorWithRetryDialog;
-
-  const factory AppPopupInfo.requiredLoginDialog() = _RequiredLoginDialog;
 }
