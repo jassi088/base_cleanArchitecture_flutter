@@ -4,6 +4,7 @@ export 'exception_handler/exception_message_mapper.dart';
 // helper
 export 'helper/local_push_notification_helper.dart';
 // navigation
+export 'navigation/app_navigator.impl.dart';
 export 'navigation/base/app_navigator_observer.dart';
 export 'navigation/base/base_mapper.dart';
 export 'navigation/mapper/app_popup_info_mapper.dart';
@@ -20,7 +21,16 @@ export 'resource/styles/app_text_styles.dart';
 export 'resource/styles/app_themes.dart';
 // shared_view
 export 'shared_view/app_text_field.dart';
+export 'shared_view/common/common_app_bar.dart';
+export 'shared_view/common/common_scaffold.dart';
+export 'shared_view/common/gradient_container_widget.dart';
 export 'shared_view/common/popup/common_dialog.dart';
 export 'shared_view/common/popup/popup_button.dart';
+export 'shared_view/common/shimmer/shimmer_circle_avatar_effect_widget.dart';
+export 'shared_view/common/shimmer/shimmer_container_effect_widget.dart';
+export 'shared_view/common/shimmer/shimmer_details_view_body_widget.dart';
+export 'shared_view/common/shimmer/shimmer_details_view_widget.dart';
 // ui
 export 'ui/login/login_page.dart';
+// utils
+export 'utils/app_colors_utils.dart';
