@@ -9,6 +9,7 @@ analyzer:
     # - "resources/lib/src/generated/*.dart"
   errors:
     unused_import: warning
+    void_checks: ignore
 
 custom_lint:
   rules:

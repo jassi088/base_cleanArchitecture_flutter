@@ -5,6 +5,10 @@ import '../../../domain/domain.dart';
 
 abstract class BaseRouteInfoMapper {
   PageRouteInfo map(AppRouteInfo appRouteInfo);
+
+  List<PageRouteInfo> mapList(List<AppRouteInfo> listAppRouteInfo) {
+    return listAppRouteInfo.map(map).toList(growable: false);
+  }
 }
 
 abstract class BasePopupInfoMapper {
