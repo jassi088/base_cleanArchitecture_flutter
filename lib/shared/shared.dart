@@ -27,6 +27,7 @@ export 'exception/parse/parse_exception.dart';
 export 'exception/validation/validation_exception.dart';
 // helper
 export 'helper/app_info.dart';
+export 'helper/disposable.dart';
 export 'helper/run_catching/result.dart';
 export 'helper/run_catching/run_catching.dart';
 // mixin
