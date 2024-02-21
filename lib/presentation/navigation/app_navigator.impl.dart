@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/domain.dart';
 import '../../shared/shared.dart';
-import '../app.dart';
+import '../presentation.dart';
 
 @LazySingleton(as: AppNavigator)
 class AppNavigatorImpl extends AppNavigator with LogMixin {

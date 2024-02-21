@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 import '../../../../shared/shared.dart';
-import '../../../app.dart';
+import '../../../presentation.dart';
 
 class CommonPagedSliverList<T> extends StatelessWidget {
   const CommonPagedSliverList({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../app.dart';
+import '../../../presentation.dart';
 
 class ShimmerDetailsViewWidget extends StatelessWidget {
   const ShimmerDetailsViewWidget({super.key});

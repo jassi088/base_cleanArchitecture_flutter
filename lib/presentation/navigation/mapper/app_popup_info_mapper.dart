@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/domain.dart';
-import '../../app.dart';
+import '../../presentation.dart';
 
 @LazySingleton(as: BasePopupInfoMapper)
 class AppPopupInfoMapper extends BasePopupInfoMapper {

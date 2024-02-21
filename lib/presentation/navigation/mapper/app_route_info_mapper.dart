@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/domain.dart';
-import '../../app.dart';
+import '../../presentation.dart';
 
 @LazySingleton(as: BaseRouteInfoMapper)
 class AppRouteInfoMapper extends BaseRouteInfoMapper {

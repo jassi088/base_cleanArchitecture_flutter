@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../app.dart';
+import '../../presentation.dart';
 
 /// AppTextStyle format as follows:
 /// s[fontSize][fontWeight][Color]

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app.dart';
+import '../../../../presentation.dart';
 
 class CommonNewPageProgressIndicator extends StatelessWidget {
   const CommonNewPageProgressIndicator({super.key});

@@ -30,6 +30,7 @@ export 'helper/app_info.dart';
 export 'helper/disposable.dart';
 export 'helper/run_catching/result.dart';
 export 'helper/run_catching/run_catching.dart';
+export 'helper/stream_logger.dart';
 // mixin
 export 'mixin/log_mixin.dart';
 // model

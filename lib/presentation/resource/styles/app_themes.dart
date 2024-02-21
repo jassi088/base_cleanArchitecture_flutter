@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../app.dart';
+import '../../presentation.dart';
 
 /// define custom themes here
 final lightTheme = ThemeData(
