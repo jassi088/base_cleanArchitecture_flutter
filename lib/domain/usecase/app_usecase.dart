@@ -19,15 +19,15 @@ class AppUsecase {
   List<InitialAppRoute> get loadInitialResourceUseCase =>
       [_appRepository.isLoggedIn ? InitialAppRoute.main : InitialAppRoute.login];
 
-  Future<bool> saveIsDarkModeUseCase(bool isDarkMode) async {
+  Future<bool> saveIsDarkModeUseCase({required bool isDarkMode}) async {
     return await _appRepository.saveIsDarkMode(isDarkMode);
   }
 
-  Future<bool> saveIsFirstLaunchAppUseCase(bool isFirstLaunchApp) async {
+  Future<bool> saveIsFirstLaunchAppUseCase({required bool isFirstLaunchApp}) async {
     return await _appRepository.saveIsFirstLaunchApp(isFirstLaunchApp);
   }
 
-  Future<bool> saveIsFirstLoginUseCase(bool isFirstLogin) async {
+  Future<bool> saveIsFirstLoginUseCase({required bool isFirstLogin}) async {
     return await _appRepository.saveIsFirstLogin(isFirstLogin);
   }
 
