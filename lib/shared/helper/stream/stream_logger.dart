@@ -1,6 +1,6 @@
 import 'package:rxdart/rxdart.dart';
 
-import '../shared.dart';
+import '../../shared.dart';
 
 extension StreamExt<T> on Stream<T> {
   Stream<T> log(
