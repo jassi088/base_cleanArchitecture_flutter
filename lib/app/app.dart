@@ -7,6 +7,8 @@ export 'base_bloc/common/common_bloc.dart';
 export 'base_bloc/common/common_event.dart';
 export 'base_bloc/common/common_state.dart';
 export 'base_bloc/mixin/event_transformer_mixin.dart';
+// base_page
+export 'base_page/base_page_state.dart';
 // bloc
 export 'bloc/app_bloc.dart';
 export 'bloc/app_event.dart';
