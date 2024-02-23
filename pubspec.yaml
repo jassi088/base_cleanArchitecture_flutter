@@ -61,7 +61,7 @@ dev_dependencies:
 
 # Config generate when build
 flutter_gen:
-  output: lib/app/resource/generated
+  output: lib/presentation/resource/generated
   line_lenght: 160
   null_safety: true
 
