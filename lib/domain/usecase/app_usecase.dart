@@ -37,7 +37,14 @@ class AppUsecase {
 
   Future<void> logoutUseCase() async {
     if (_appRepository.isLoggedIn) {
-      await _navigator.replace(const AppRouteInfo.login());
+      await _navigator.showDialog(
+        AppPopupInfo.confirmDialog(
+            message: 'Bạn có chắc muốn đăng xuất',
+            onPressed: () async {
+              await _navigator.replace(const AppRouteInfo.login());
+            }),
+        useRootNavigator: true,
+      );
       //return await _repository.logout();
     }
   }

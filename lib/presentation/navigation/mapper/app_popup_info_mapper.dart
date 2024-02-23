@@ -9,9 +9,12 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
   @override
   Widget map(AppPopupInfo appPopupInfo, AppNavigator navigator) {
     return appPopupInfo.when(
-      confirmDialog: (message, onPressed) {
+      confirmDialog: (message, onPressed, onPressedCancel) {
         return CommonDialog(
-          actions: [PopupButton(text: 'OK', onPressed: onPressed ?? () => navigator.pop())],
+          actions: [
+            PopupButton(text: 'OK', onPressed: onPressed ?? () => navigator.pop()),
+            PopupButton(text: 'Cancel', onPressed: onPressedCancel ?? () => navigator.pop()),
+          ],
           message: message,
         );
       },

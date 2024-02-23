@@ -46,7 +46,6 @@ class AppBloc extends BaseBloc<AppEvent, AppState> {
   Future<void> _onAppInitiated(AppInitiated event, Emitter<AppState> emit) async {
     await runBlocCatching(
       action: () async {
-        // final output = _getInitialAppDataUseCase.execute(const GetInitialAppDataInput());
         final output = _appUsecase.getInitialAppDataUseCase;
         _updateThemeSetting(output);
         emit(state.copyWith(
