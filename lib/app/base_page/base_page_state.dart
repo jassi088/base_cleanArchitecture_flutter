@@ -101,6 +101,6 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
     });
   }
 
-  //   @override
-  //   void onRefreshTokenFailed() {}
+  @override
+  void onRefreshTokenFailed() {}
 }
