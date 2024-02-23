@@ -1,5 +1,7 @@
 // datasource
 export 'datasource/auth_api.dart';
+// repository
+export 'repository/app_repository.impl.dart';
 export 'repository/auth_repository.impl.dart';
 // api
 export 'source/api/exception/dio_exception_mapper.dart';
