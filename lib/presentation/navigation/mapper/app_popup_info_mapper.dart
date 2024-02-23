@@ -20,7 +20,10 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
           actions: [
             PopupButton(text: 'Cancel', onPressed: () => navigator.pop()),
             PopupButton(
-                text: 'Retry', onPressed: onRetryPressed ?? () => navigator.pop(), isDefault: true),
+              text: 'Retry',
+              onPressed: onRetryPressed ?? () => navigator.pop(),
+              isDefault: true,
+            ),
           ],
           message: message,
         );
