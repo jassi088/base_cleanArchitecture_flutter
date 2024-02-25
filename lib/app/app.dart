@@ -13,3 +13,5 @@ export 'base_page/base_page_state.dart';
 export 'bloc/app_bloc.dart';
 export 'bloc/app_event.dart';
 export 'bloc/app_state.dart';
+// my_app
+export 'my_app.dart';
