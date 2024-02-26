@@ -12,6 +12,11 @@ import '../presentation.dart';
 class AppNavigatorImpl extends AppNavigator with LogMixin {
   AppNavigatorImpl(this._appRouter, this._appPopupInfoMapper, this._appRouteInfoMapper);
 
+  final tabRoutes = const [
+    HomeTab(),
+    SearchTab(),
+    SettingTab(),
+  ];
   TabsRouter? tabsRouter;
 
   final AppRouter _appRouter;
