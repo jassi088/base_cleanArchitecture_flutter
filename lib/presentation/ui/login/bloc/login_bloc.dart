@@ -10,9 +10,9 @@ import 'login.dart';
 @Injectable()
 class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
   LoginBloc(this._authUsecase) : super(const LoginState()) {
-    on<EmailTextFieldChanged>(_onEmailTextFieldChanged, transformer: distinct());
+    on<EmailTextFieldChanged>(_onEmailTextFieldChanged, transformer: debounceTime());
 
-    on<PasswordTextFieldChanged>(_onPasswordTextFieldChanged, transformer: distinct());
+    on<PasswordTextFieldChanged>(_onPasswordTextFieldChanged, transformer: debounceTime());
 
     on<LoginButtonPressed>(_onLoginButtonPressed, transformer: log());
 
@@ -49,6 +49,8 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
       },
       handleError: false,
       doOnError: (e) async {
+        print('❗ $e');
+        print('❗ ${exceptionMessageMapper.map(e)}');
         emit(state.copyWith(onPageError: exceptionMessageMapper.map(e)));
       },
     );
