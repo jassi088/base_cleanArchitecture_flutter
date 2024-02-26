@@ -10,6 +10,7 @@ class AppTextField extends StatelessWidget {
     this.controller,
     this.onChanged,
     this.onTap,
+    this.obscureText,
     this.keyboardType = TextInputType.text,
     super.key,
   });
@@ -21,6 +22,7 @@ class AppTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final TextInputType keyboardType;
   final TextEditingController? controller;
+  final bool? obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class AppTextField extends StatelessWidget {
         TextField(
           onTap: onTap,
           onChanged: onChanged,
+          obscureText: obscureText!,
           controller: controller,
           decoration: InputDecoration(hintText: hintText),
           keyboardType: keyboardType,
