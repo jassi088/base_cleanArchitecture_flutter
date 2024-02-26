@@ -44,5 +44,7 @@ export 'shared_view/common/shimmer/shimmer_details_view_body_widget.dart';
 export 'shared_view/common/shimmer/shimmer_details_view_widget.dart';
 // ui
 export 'ui/login/login_page.dart';
+export 'ui/main/bloc/main.dart';
+export 'ui/main/main_page.dart';
 // utils
 export 'utils/app_colors_utils.dart';
