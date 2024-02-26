@@ -1,3 +1,4 @@
+export 'app_delegate.dart';
 // base_bloc
 export 'base_bloc/app_bloc_observer.dart';
 export 'base_bloc/base_bloc.dart';
