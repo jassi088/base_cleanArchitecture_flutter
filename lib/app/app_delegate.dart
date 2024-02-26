@@ -1,7 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import '../domain/domain.dart';
 import '../initializer/initializer.dart';
@@ -33,6 +35,7 @@ class AppDelegate extends IAppDelegate {
     WidgetsFlutterBinding.ensureInitialized();
     // await Firebase.initializeApp();
     await AppInitializer(InitializerConfig.getInstance()).init();
+    if (kIsWeb) setPathUrlStrategy();
 
     final app = await build();
     runApp(app);

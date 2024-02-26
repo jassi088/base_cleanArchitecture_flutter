@@ -9,12 +9,12 @@ class AppUsecase {
 
   AppUsecase(this._appRepository, this._navigator);
 
-  bool get getInitialAppDataUseCase => !_appRepository.isDarkMode && !_appRepository.isLoggedIn;
+  bool get getInitialAppDataUseCase => _appRepository.isDarkMode && _appRepository.isLoggedIn;
 
   // bool get getInitialHomeDataUseCase =>
   //     !_appRepository.isLoggedIn && _appRepository.isFirstLaunchApp;
 
-  bool get isLoggedInUseCase => !_appRepository.isLoggedIn;
+  bool get isLoggedInUseCase => _appRepository.isLoggedIn;
 
   List<InitialAppRoute> get loadInitialResourceUseCase =>
       [_appRepository.isLoggedIn ? InitialAppRoute.main : InitialAppRoute.login];
