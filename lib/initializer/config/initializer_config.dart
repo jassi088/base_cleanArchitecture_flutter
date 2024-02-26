@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../app/app.dart';
 import '../../shared/shared.dart';
@@ -16,7 +17,7 @@ class InitializerConfig extends ApplicationConfig {
 
   @override
   Future<void> config() async {
-    di.configureInjection();
+    di.configureInjection(environment: Environment.prod);
     await di.getIt.get<AppInfo>().init();
     Bloc.observer = AppBlocObserver();
     await ViewUtils.setPreferredOrientations(DeviceUtils.deviceType == DeviceType.mobile

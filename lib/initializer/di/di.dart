@@ -29,4 +29,4 @@ abstract class ServiceModule {
 final GetIt getIt = GetIt.instance;
 
 @injectableInit
-void configureInjection() => getIt.init(environment: Environment.prod);
+void configureInjection({String? environment}) => getIt.init(environment: environment);
