@@ -43,14 +43,14 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                 AppTextField(
                   title: 'Email',
                   hintText: 'Email',
-                  onChanged: (email) => bloc.add(EmailTextFieldChanged(email: email)),
+                  onChanged: (email) => bloc.add(EmailTextFieldChanged(email: email.trim())),
                   keyboardType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: Dimens.d24.responsive()),
                 AppTextField(
                   title: 'Password',
                   hintText: 'Password',
-                  onChanged: (pass) => bloc.add(PasswordTextFieldChanged(password: pass)),
+                  onChanged: (pass) => bloc.add(PasswordTextFieldChanged(password: pass.trim())),
                   keyboardType: TextInputType.visiblePassword,
                 ),
                 SizedBox(height: Dimens.d15.responsive()),
