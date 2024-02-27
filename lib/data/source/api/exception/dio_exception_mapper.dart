@@ -35,7 +35,7 @@ class DioExceptionMapper extends ExceptionMapper<NetworkingException> {
 
             case DioExceptionType.connectionError:
               return NetworkingException(
-                  networkExceptions: const NetworkExceptions.noInternetConnection());
+                  networkExceptions: const NetworkExceptions.serviceUnavailable());
 
             case DioExceptionType.unknown:
               if (exception.error is SocketException) {
