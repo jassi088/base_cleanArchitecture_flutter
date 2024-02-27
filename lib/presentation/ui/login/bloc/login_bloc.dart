@@ -49,8 +49,6 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
       },
       handleError: false,
       doOnError: (e) async {
-        print('❗ $e');
-        print('❗ ${exceptionMessageMapper.map(e)}');
         emit(state.copyWith(onPageError: exceptionMessageMapper.map(e)));
       },
     );

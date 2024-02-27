@@ -36,7 +36,6 @@ export 'helper/stream/stream_logger.dart';
 export 'mixin/log_mixin.dart';
 // model
 export 'model/shared_enum.dart';
-export 'model/typedef.dart';
 // utils
 export 'utils/date_time_utils.dart';
 export 'utils/device_utils.dart';

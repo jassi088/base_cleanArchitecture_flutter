@@ -13,8 +13,13 @@ class Log {
     _log('💡 $message', name: name ?? '', time: time);
   }
 
-  static void e(Object? errorMessage,
-      {String? name, Object? errorObject, StackTrace? stackTrace, DateTime? time}) {
+  static void e(
+    Object? errorMessage, {
+    String? name,
+    Object? errorObject,
+    StackTrace? stackTrace,
+    DateTime? time,
+  }) {
     _log(
       '💢 $errorMessage',
       name: name ?? '',
