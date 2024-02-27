@@ -41,6 +41,7 @@ class AppUsecase {
         AppPopupInfo.confirmDialog(
             message: 'Bạn có chắc muốn đăng xuất',
             onPressed: () async {
+              await _appRepository.clearCurrentUserData();
               await _navigator.replace(const AppRouteInfo.login());
             }),
         useRootNavigator: true,
