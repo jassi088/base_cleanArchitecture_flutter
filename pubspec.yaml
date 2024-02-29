@@ -7,7 +7,7 @@ environment:
   sdk: '>=3.2.6 <4.0.0'
 
 dependency_overrides:
-  analyzer: 6.2.0
+  analyzer: 6.3.0
 
 dependencies:
   android_id: ^0.3.3
