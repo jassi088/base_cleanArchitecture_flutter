@@ -22,8 +22,3 @@ class LoadingVisibilityEmitted extends CommonEvent with _$LoadingVisibilityEmitt
     required bool isLoading,
   }) = _LoadingVisibilityEmitted;
 }
-
-// @freezed
-// class ForceLogoutButtonPressed extends CommonEvent with _$ForceLogoutButtonPressed {
-//   const factory ForceLogoutButtonPressed() = _ForceLogoutButtonPressed;
-// }

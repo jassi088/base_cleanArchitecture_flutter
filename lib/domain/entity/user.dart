@@ -1,7 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-// import 'package:shared/shared.dart';
-
-// import '../../domain.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';

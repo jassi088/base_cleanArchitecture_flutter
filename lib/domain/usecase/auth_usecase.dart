@@ -9,18 +9,6 @@ class AuthUsecase {
 
   AuthUsecase(this._authRepository);
 
-  // Future<void> loginUsecase({required String email, required String password}) async {
-  //   if (!ValidationUtils.isValidEmail(email)) {
-  //     throw const ValidationException(ValidationExceptionKind.invalidEmail);
-  //   }
-
-  //   if (!ValidationUtils.isNotEmpty(password)) {
-  //     throw const ValidationException(ValidationExceptionKind.invalidPassword);
-  //   }
-
-  //   return await _authRepository.login(email: email, password: password);
-  // }
-
   Future<void> loginUsecase({required String username, required String password}) async {
     if (!ValidationUtils.isNotEmpty(username)) {
       throw const ValidationException(ValidationExceptionKind.invalidUserName);

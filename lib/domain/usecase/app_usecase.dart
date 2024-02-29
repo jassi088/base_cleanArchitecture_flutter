@@ -39,11 +39,12 @@ class AppUsecase {
     if (_appRepository.isLoggedIn) {
       await _navigator.showDialog(
         AppPopupInfo.confirmDialog(
-            message: 'Bạn có chắc muốn đăng xuất',
-            onPressed: () async {
-              await _appRepository.clearCurrentUserData();
-              await _navigator.replace(const AppRouteInfo.login());
-            }),
+          message: 'Bạn có chắc muốn đăng xuất',
+          onPressed: () async {
+            await _appRepository.clearCurrentUserData();
+            await _navigator.replace(const AppRouteInfo.login());
+          },
+        ),
         useRootNavigator: true,
       );
       //return await _repository.logout();
