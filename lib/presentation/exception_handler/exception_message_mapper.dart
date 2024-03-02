@@ -8,7 +8,7 @@ class ExceptionMessageMapper {
       AppExceptionType.remote => (appException as NetworkingException).networkExceptions.when(
             requestCancelled: () => 'Yêu cầu đã bị hủy',
             unauthorizedRequest: (error) => 'Yêu cầu không được phép: $error',
-            badRequest: () => 'Yêu cầu không hợp lệ',
+            badRequest: (error) => 'Yêu cầu không hợp lệ: $error',
             notFound: (error) => 'Không tìm thấy: $error',
             methodNotAllowed: () => 'Phương thức không được phép',
             requestTimeout: () => 'Yêu cầu đã hết thời gian chờ',

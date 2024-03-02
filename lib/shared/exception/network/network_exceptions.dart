@@ -8,7 +8,7 @@ class NetworkExceptions with _$NetworkExceptions {
 
   const factory NetworkExceptions.unauthorizedRequest(String reason) = UnauthorizedRequest;
 
-  const factory NetworkExceptions.badRequest() = BadRequest;
+  const factory NetworkExceptions.badRequest(String reason) = BadRequest;
 
   const factory NetworkExceptions.notFound(String reason) = NotFound;
 

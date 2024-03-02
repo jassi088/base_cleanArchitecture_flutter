@@ -75,7 +75,7 @@ class DioExceptionMapper extends ExceptionMapper<NetworkingException> {
     final int statusCode = response?.statusCode ?? 0;
     switch (statusCode) {
       case 400:
-        return const NetworkExceptions.badRequest();
+        return NetworkExceptions.badRequest(responeException?.message ?? 'Not found');
       case 401:
         return NetworkExceptions.unauthorizedRequest(responeException?.message ?? 'Not found');
       case 403:
