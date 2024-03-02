@@ -19,13 +19,13 @@ class UrlConstants {
   static String get appApiBaseUrl {
     switch (EnvConstants.flavor) {
       case Flavor.develop:
-        return 'https://dev.smartlook.com.vn:51005';
+        return 'https://sos-backend.smartlook.com.vn:50003/';
       case Flavor.qa:
-        return 'https://dev.smartlook.com.vn:51005';
+        return 'https://sos-backend.smartlook.com.vn:50003/';
       case Flavor.staging:
-        return 'https://dev.smartlook.com.vn:51005';
+        return 'https://sos-backend.smartlook.com.vn:50003/';
       case Flavor.production:
-        return 'https://dev.smartlook.com.vn:51005';
+        return 'https://sos-backend.smartlook.com.vn:50003/';
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../presentation.dart';
@@ -16,45 +17,6 @@ class CommonDialog extends StatelessWidget {
     super.key,
   });
 
-  const CommonDialog.android({
-    List<PopupButton> actions = const <PopupButton>[],
-    String? title,
-    String? message,
-    Key? key,
-  }) : this(
-          commonPopupType: PopupType.android,
-          actions: actions,
-          title: title,
-          message: message,
-          key: key,
-        );
-
-  const CommonDialog.ios({
-    List<PopupButton> actions = const <PopupButton>[],
-    String? title,
-    String? message,
-    Key? key,
-  }) : this(
-          commonPopupType: PopupType.ios,
-          actions: actions,
-          title: title,
-          message: message,
-          key: key,
-        );
-
-  const CommonDialog.adaptive({
-    List<PopupButton> actions = const <PopupButton>[],
-    String? title,
-    String? message,
-    Key? key,
-  }) : this(
-          commonPopupType: PopupType.adaptive,
-          actions: actions,
-          title: title,
-          message: message,
-          key: key,
-        );
-
   final PopupType commonPopupType;
   final List<PopupButton> actions;
   final String? title;
@@ -68,7 +30,11 @@ class CommonDialog extends StatelessWidget {
       case PopupType.ios:
         return _buildIosDialog();
       case PopupType.adaptive:
-        return Platform.isIOS ? _buildIosDialog() : _buildAndroidDialog();
+        return kIsWeb
+            ? _buildAndroidDialog()
+            : Platform.isIOS
+                ? _buildIosDialog()
+                : _buildAndroidDialog();
     }
   }
 
