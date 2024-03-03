@@ -4,6 +4,8 @@ export 'entity/base/load_more_output.dart';
 export 'entity/base/paged_list.dart';
 export 'entity/enum/enum.dart';
 export 'entity/image_url.dart';
+export 'entity/notification/msg.dart';
+export 'entity/notification/notification.dart';
 export 'entity/token.dart';
 export 'entity/user.dart';
 // navigation
