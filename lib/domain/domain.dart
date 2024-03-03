@@ -15,7 +15,9 @@ export 'navigation/app_route_info.dart';
 // repository
 export 'repository/app_repository.dart';
 export 'repository/auth_repository.dart';
+export 'repository/noti_repository.dart';
 //usecase
 export 'usecase/app_usecase.dart';
 export 'usecase/auth_usecase.dart';
 export 'usecase/base/base_load_more_use_case.dart';
+export 'usecase/noti_usecase.dart';

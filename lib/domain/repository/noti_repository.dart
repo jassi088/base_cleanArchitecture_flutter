@@ -1,7 +1,7 @@
 import '../domain.dart';
 
 abstract class NotiRepository {
-  Future<PagedList<Notification>> fetchNoti({required int index, required int limit});
+  Future<PagedList<Notification>> fetchNoti({required int page, required int limit});
 
   Future<void> setSeenAllMessage();
 
