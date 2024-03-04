@@ -41,7 +41,7 @@ enum Gender {
 
 enum BottomTab {
   home(icon: Icon(Icons.home), activeIcon: Icon(Icons.home)),
-  search(icon: Icon(Icons.search), activeIcon: Icon(Icons.search)),
+  notifications(icon: Icon(Icons.notifications), activeIcon: Icon(Icons.notifications)),
   setting(icon: Icon(Icons.settings), activeIcon: Icon(Icons.settings));
 
   const BottomTab({required this.icon, required this.activeIcon});
@@ -54,8 +54,8 @@ enum BottomTab {
       case BottomTab.home:
         // return S.current.home;
         return 'Home';
-      case BottomTab.search:
-        return 'Search';
+      case BottomTab.notifications:
+        return 'Noti';
       case BottomTab.setting:
         return 'Setting';
     }

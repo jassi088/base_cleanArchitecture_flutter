@@ -14,7 +14,7 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
 
   final tabRoutes = const [
     HomeTab(),
-    SearchTab(),
+    NotiTab(),
     SettingTab(),
   ];
   TabsRouter? tabsRouter;

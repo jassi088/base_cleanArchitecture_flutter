@@ -47,6 +47,7 @@ export 'ui/login/bloc/login.dart';
 export 'ui/login/login_page.dart';
 export 'ui/main/bloc/main.dart';
 export 'ui/main/main_page.dart';
+export 'ui/noti/noti_page.dart';
 export 'ui/setting/bloc/setting.dart';
 export 'ui/setting/setting_page.dart';
 // utils
