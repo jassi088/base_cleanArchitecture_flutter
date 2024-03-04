@@ -5,22 +5,22 @@ import '../../shared/shared.dart';
 import '../domain.dart';
 
 @Injectable()
-class NotiUsecase extends BaseLoadMoreUseCase<Notification> {
+class NotiUsecase extends BaseLoadMoreUseCase<Msg> {
   final NotiRepository _notiRepository;
 
   NotiUsecase(this._notiRepository) : super(initPage: PagingConstants.initialPage);
 
   @protected
   @override
-  Future<PagedList<Notification>> buildUseCase() {
+  Future<PagedList<Msg>> buildUseCase() {
     return _notiRepository.fetchNoti(page: page, limit: PagingConstants.itemsPerPage);
   }
 
-  Future<void> setSeenAllMessage() async {
-    return await _notiRepository.setSeenAllMessage();
-  }
+  // Future<void> setSeenAllMessage() async {
+  //   return await _notiRepository.setSeenAllMessage();
+  // }
 
-  Future<void> setSeenMessage({required List<String> idList}) async {
-    return await _notiRepository.setSeenMessage(idList: idList);
-  }
+  // Future<void> setSeenMessage({required List<String> idList}) async {
+  //   return await _notiRepository.setSeenMessage(idList: idList);
+  // }
 }

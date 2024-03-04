@@ -9,8 +9,8 @@ class Msg with _$Msg {
     @Default(Msg.defaultId) String id,
     @Default(Msg.defaultBody) String body,
     @Default(Msg.defaultTime) String time,
-    @Default(Msg.defaultIssent) String issent,
-    @Default(Msg.defaultIsseen) String isseen,
+    @Default(Msg.defaultIssent) bool issent,
+    @Default(Msg.defaultIsseen) bool isseen,
   }) = _Msg;
 
   static const defaultId = '';
