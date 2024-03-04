@@ -8,8 +8,8 @@ import '../../../../domain/domain.dart';
 import 'noti.dart';
 
 @Injectable()
-class HomeBloc extends BaseBloc<NotiEvent, NotiState> {
-  HomeBloc(this._notiUsecase) : super(NotiState()) {
+class NotiBloc extends BaseBloc<NotiEvent, NotiState> {
+  NotiBloc(this._notiUsecase) : super(NotiState()) {
     on<NotiPageInitiated>(_onNotiPageInitiated, transformer: log());
 
     on<NotiLoadMore>(_onNotiLoadMore, transformer: log());
