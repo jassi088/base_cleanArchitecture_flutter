@@ -1,8 +1,10 @@
 // datasource
 export 'datasource/auth_api.dart';
+export 'datasource/noti_api.dart';
 // repository
 export 'repository/app_repository.impl.dart';
 export 'repository/auth_repository.impl.dart';
+export 'repository/noti_repository.impl.dart';
 // api
 export 'source/api/exception/dio_exception_mapper.dart';
 export 'source/api/interceptors/api_token_interceptor.dart';
