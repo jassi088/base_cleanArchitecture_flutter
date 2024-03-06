@@ -49,7 +49,7 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
       },
       handleError: false,
       doOnError: (e) async {
-        emit(state.copyWith(onPageError: exceptionMessageMapper.map(e)));
+        emit(state.copyWith(onPageError: e.message));
       },
     );
   }

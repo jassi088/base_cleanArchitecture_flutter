@@ -7,9 +7,12 @@ class ParseException extends AppException {
   final Object? rootException;
 
   @override
-  String toString() {
-    return 'ParseException: {kind: $kind, rootException: $rootException}';
-  }
+  String get message => switch (kind) {
+        ParseExceptionKind.invalidSourceFormat => 'Lỗi phân tích dữ liệu',
+      };
+
+  @override
+  String toString() => 'ParseException: {kind: $kind, rootException: $rootException}';
 }
 
 enum ParseExceptionKind {

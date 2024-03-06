@@ -13,7 +13,6 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
     implements ExceptionHandlerListener {
   late final AppNavigator navigator = getIt.get<AppNavigator>();
   late final AppBloc appBloc = getIt.get<AppBloc>();
-  late final ExceptionMessageMapper exceptionMessageMapper = const ExceptionMessageMapper();
   late final ExceptionHandler exceptionHandler =
       ExceptionHandler(navigator: navigator, listener: this);
 
@@ -21,16 +20,14 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
     ..navigator = navigator
     ..disposeBag = disposeBag
     ..appBloc = appBloc
-    ..exceptionHandler = exceptionHandler
-    ..exceptionMessageMapper = exceptionMessageMapper;
+    ..exceptionHandler = exceptionHandler;
 
   late final B bloc = getIt.get<B>()
     ..navigator = navigator
     ..disposeBag = disposeBag
     ..appBloc = appBloc
     ..commonBloc = commonBloc
-    ..exceptionHandler = exceptionHandler
-    ..exceptionMessageMapper = exceptionMessageMapper;
+    ..exceptionHandler = exceptionHandler;
 
   late final DisposeBag disposeBag = DisposeBag();
 
@@ -94,8 +91,7 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
 
   void handleException(AppExceptionWrapper appExceptionWrapper) {
     exceptionHandler
-        .handleException(
-            appExceptionWrapper, exceptionMessageMapper.map(appExceptionWrapper.appException))
+        .handleException(appExceptionWrapper, appExceptionWrapper.appException.message)
         .then((value) {
       appExceptionWrapper.exceptionCompleter?.complete();
     });

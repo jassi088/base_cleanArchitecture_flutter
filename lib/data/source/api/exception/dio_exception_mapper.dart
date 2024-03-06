@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import '../../../../shared/shared.dart';
+import '../../../data.dart';
 
 class DioExceptionMapper extends ExceptionMapper<NetworkingException> {
   DioExceptionMapper();

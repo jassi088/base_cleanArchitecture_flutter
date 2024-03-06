@@ -14,6 +14,7 @@ export 'source/api/interceptors/custom_log_interceptor.dart';
 export 'source/api/interceptors/retry_on_error_interceptor.dart';
 export 'source/api/models/api_response.dart';
 export 'source/api/models/records_response.dart';
+export 'source/api/models/respone_exception.dart';
 export 'source/api/networking/networking_factory.dart';
 // preference
 export 'source/preference/app_preferences.dart';

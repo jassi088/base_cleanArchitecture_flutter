@@ -12,7 +12,6 @@ export 'exception/base/app_exception_wrapper.dart';
 export 'exception/base/exception_mapper.dart';
 export 'exception/network/network_exceptions.dart';
 export 'exception/network/networking_exception.dart';
-export 'exception/network/respone_exception.dart';
 export 'exception/parse/parse_exception.dart';
 export 'exception/validation/validation_exception.dart';
 // helper

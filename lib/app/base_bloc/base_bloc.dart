@@ -19,7 +19,6 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent, S extends BaseBlocState
   late final AppNavigator navigator;
   late final AppBloc appBloc;
   late final ExceptionHandler exceptionHandler;
-  late final ExceptionMessageMapper exceptionMessageMapper;
   late final DisposeBag disposeBag;
   late final CommonBloc _commonBloc;
 

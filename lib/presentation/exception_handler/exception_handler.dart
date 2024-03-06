@@ -7,12 +7,7 @@ class ExceptionHandler {
   final AppNavigator navigator;
   final ExceptionHandlerListener listener;
 
-  Future<void> handleException(
-    AppExceptionWrapper appExceptionWrapper,
-    String commonExceptionMessage,
-  ) async {
-    final message = appExceptionWrapper.overrideMessage ?? commonExceptionMessage;
-
+  Future<void> handleException(AppExceptionWrapper appExceptionWrapper, String message) async {
     switch (appExceptionWrapper.appException.appExceptionType) {
       case AppExceptionType.remote:
         final exception = appExceptionWrapper.appException as NetworkingException;
