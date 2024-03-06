@@ -54,7 +54,6 @@ class NotiBloc extends BaseBloc<NotiEvent, NotiState> {
   }) async {
     return runBlocCatching(
       action: () async {
-        emit(state.copyWith(loadNotiException: null));
         final output = await _notiUsecase.execute(isInitialLoad);
         emit(state.copyWith(notifications: output));
       },
@@ -64,7 +63,6 @@ class NotiBloc extends BaseBloc<NotiEvent, NotiState> {
       doOnSubscribe: doOnSubscribe,
       doOnSuccessOrError: doOnSuccessOrError,
       handleLoading: false,
-      maxRetries: 3,
     );
   }
 }

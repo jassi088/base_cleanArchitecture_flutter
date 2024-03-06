@@ -93,7 +93,7 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
     exceptionHandler
         .handleException(appExceptionWrapper, appExceptionWrapper.appException.message)
         .then((value) {
-      appExceptionWrapper.exceptionCompleter?.complete();
+      // appExceptionWrapper.exceptionCompleter?.complete();
     });
   }
 

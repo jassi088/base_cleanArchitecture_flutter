@@ -47,7 +47,6 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
         await _authUsecase.loginUsecase(username: state.email, password: state.password);
         await navigator.replace(const AppRouteInfo.main());
       },
-      handleError: false,
       doOnError: (e) async {
         emit(state.copyWith(onPageError: e.message));
       },

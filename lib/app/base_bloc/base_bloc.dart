@@ -61,7 +61,7 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent, S extends BaseBlocState
     bool handleLoading = true,
     bool handleError = true,
     bool handleRetry = true,
-    int? maxRetries,
+    int? maxRetries = 3,
   }) async {
     assert(maxRetries == null || maxRetries > 0, 'maxRetries must be positive');
     Completer<void>? recursion;
