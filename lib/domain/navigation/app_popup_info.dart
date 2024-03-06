@@ -14,5 +14,6 @@ class AppPopupInfo with _$AppPopupInfo {
   const factory AppPopupInfo.errorWithRetryDialog({
     @Default('') String message,
     Function()? onRetryPressed,
+    Function()? onPressedCancel,
   }) = _ErrorWithRetryDialog;
 }
