@@ -11,25 +11,45 @@ class ExceptionHandler {
     switch (appExceptionWrapper.appException.appExceptionType) {
       case AppExceptionType.remote:
         final exception = appExceptionWrapper.appException as NetworkingException;
-        switch (exception.networkExceptions) {
-          // case RemoteExceptionKind.refreshTokenFailed:
-          //   await _showErrorDialog(
-          //       isRefreshTokenFailed: true, message: message, onPressed: () => navigator.pop());
-          // break;
-          case NetworkExceptions.requestTimeout || NetworkExceptions.sendTimeout:
-            await _showErrorDialogWithRetry(
+        exception.networkExceptions.maybeWhen(
+          // requestTimeout: () async {
+          //   await _showErrorDialogWithRetry(
+          //     message: message,
+          //     onRetryPressed: () async {
+          //       await navigator.pop();
+          //       await appExceptionWrapper.doOnRetry?.call();
+          //     },
+          //   );
+          // },
+          // sendTimeout: () async {
+          //   await _showErrorDialogWithRetry(
+          //     message: message,
+          //     onRetryPressed: () async {
+          //       await navigator.pop();
+          //       await appExceptionWrapper.doOnRetry?.call();
+          //     },
+          //   );
+          // },
+          noInternetConnection: () async {
+            return await _showErrorDialogWithRetry(
               message: message,
               onRetryPressed: () async {
                 await navigator.pop();
                 await appExceptionWrapper.doOnRetry?.call();
               },
             );
-            break;
-          default:
-            _showErrorSnackBar(message: message);
-            break;
-        }
-        break;
+          },
+          badRequest: (e) async {
+            return await _showErrorDialogWithRetry(
+              message: message,
+              onRetryPressed: () async {
+                await navigator.pop();
+                await appExceptionWrapper.doOnRetry?.call();
+              },
+            );
+          },
+          orElse: () => _showErrorSnackBar(message: message),
+        );
       case AppExceptionType.parse:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.validation:

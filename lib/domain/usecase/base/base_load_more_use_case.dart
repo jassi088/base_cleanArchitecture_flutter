@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+import '../../../data/data.dart';
 import '../../../shared/shared.dart';
 import '../../domain.dart';
 
@@ -64,7 +65,7 @@ abstract class BaseLoadMoreUseCase<T> extends BaseUseCase<Future<PagedList<T>>> 
       }
       _output = _oldOutput;
 
-      throw Exception(e.toString());
+      throw DioExceptionMapper().map(e);
     }
   }
 }
