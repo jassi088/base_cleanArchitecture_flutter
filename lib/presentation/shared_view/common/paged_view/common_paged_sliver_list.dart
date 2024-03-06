@@ -9,7 +9,7 @@ class CommonPagedSliverList<T> extends StatelessWidget {
     required this.pagingController,
     required this.itemBuilder,
     this.animateTransitions = true,
-    this.transitionDuration = DurationConstants.defaultListGridTransitionDuration,
+    this.transitionDuration = Constants.defaultListGridTransitionDuration,
     this.firstPageErrorIndicator,
     this.newPageErrorIndicator,
     this.firstPageProgressIndicator,

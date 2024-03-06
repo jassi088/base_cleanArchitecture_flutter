@@ -40,7 +40,7 @@ class DeviceUtils {
     return MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.first)
                 .size
                 .shortestSide <
-            DeviceConstants.maxMobileWidthForDeviceType
+            Constants.maxMobileWidthForDeviceType
         ? DeviceType.mobile
         : DeviceType.tablet;
   }

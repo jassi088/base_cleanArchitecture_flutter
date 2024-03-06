@@ -19,14 +19,13 @@ class ApiTokenInterceptor extends BaseInterceptor {
   Future<void> onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     // Xử lý HeaderInterceptor
     final userAgentValue = userAgentClientHintsHeader();
-    options.headers[ServerRequestResponseConstants.userAgentKey] = userAgentValue;
+    options.headers[Constants.userAgentKey] = userAgentValue;
     options.headers.addAll(_headers);
 
     // Xử lý AccessTokenInterceptor
     final token = await _appPreferences.accessToken;
     if (token.isNotEmpty) {
-      options.headers[ServerRequestResponseConstants.basicAuthorization] =
-          '${ServerRequestResponseConstants.bearer} $token';
+      options.headers[Constants.basicAuthorization] = '${Constants.bearer} $token';
     }
 
     // final Options dynamicOptions = Options(

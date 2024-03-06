@@ -6,8 +6,8 @@ import '../../../../../shared/shared.dart';
 
 class CommonPagingController<T> implements Disposable {
   CommonPagingController({
-    this.invisibleItemsThreshold = PagingConstants.defaultInvisibleItemsThreshold,
-    this.firstPageKey = PagingConstants.initialPage,
+    this.invisibleItemsThreshold = Constants.defaultInvisibleItemsThreshold,
+    this.firstPageKey = Constants.initialPage,
   }) : pagingController = PagingController<int, T>(
           firstPageKey: firstPageKey,
           invisibleItemsThreshold: invisibleItemsThreshold,
@@ -24,11 +24,9 @@ class CommonPagingController<T> implements Disposable {
   }
 
   // call when initState to listen to trigger load more
-  void listen({
-    required VoidCallback onLoadMore,
-  }) {
+  void listen({required VoidCallback onLoadMore}) {
     pagingController.addPageRequestListener((pageKey) {
-      if (pageKey > PagingConstants.initialPage) {
+      if (pageKey > Constants.initialPage) {
         onLoadMore();
       }
     });
@@ -45,7 +43,7 @@ class CommonPagingController<T> implements Disposable {
     } else {
       pagingController.appendPage(
         loadMoreOutput.data,
-        (pagingController.nextPageKey ?? (PagingConstants.initialPage - 1)) + 1,
+        (pagingController.nextPageKey ?? (Constants.initialPage - 1)) + 1,
       );
     }
   }

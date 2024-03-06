@@ -32,7 +32,7 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
   @override
   Widget buildPage(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(DeviceConstants.designDeviceWidth, DeviceConstants.designDeviceHeight),
+      designSize: const Size(Constants.designDeviceWidth, Constants.designDeviceHeight),
       builder: (context, _) => BlocBuilder<AppBloc, AppState>(
         buildWhen: (previous, current) => previous.isDarkTheme != current.isDarkTheme,
         // || previous.languageCode != current.languageCode,

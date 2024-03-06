@@ -21,6 +21,7 @@ class NotiPage extends StatefulWidget {
 
 class _NotiPageState extends BasePageState<NotiPage, NotiBloc> {
   late final _pagingController = CommonPagingController<Msg>()..disposeBy(disposeBag);
+  final Set<String> visibleNoti = <String>{};
 
   @override
   void initState() {
@@ -80,14 +81,15 @@ class _NotiPageState extends BasePageState<NotiPage, NotiBloc> {
                           child: VisibilityDetector(
                             key: Key('$index'),
                             onVisibilityChanged: (VisibilityInfo info) {
-                              // if (info.visibleFraction == 1) {
-                              //   if (!visibleNoti.contains(item.id) && !item.isseen) {
-                              //     visibleNoti.add(item.id);
-                              //     ref
-                              //         .read(notiSeenListProvider.notifier)
-                              //         .update((state) => visibleNoti);
-                              //   }
-                              // }
+                              if (info.visibleFraction == 1) {
+                                if (!visibleNoti.contains(msg.id) && !msg.isseen) {
+                                  visibleNoti.add(msg.id);
+                                  // call API setseenMessage
+                                  // ref
+                                  //     .read(notiSeenListProvider.notifier)
+                                  //     .update((state) => visibleNoti);
+                                }
+                              }
                             },
                             child: NotiItem(msg: msg),
                           ),

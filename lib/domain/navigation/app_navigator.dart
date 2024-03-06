@@ -54,7 +54,7 @@ abstract class AppNavigator {
   Future<T?> showGeneralDialog<T extends Object?>(
     AppPopupInfo appPopupInfo, {
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)? transitionBuilder,
-    Duration transitionDuration = DurationConstants.defaultGeneralDialogTransitionDuration,
+    Duration transitionDuration = Constants.defaultGeneralDialogTransitionDuration,
     bool barrierDismissible = true,
     Color barrierColor = const Color(0x80000000),
     bool useRootNavigator = true,

@@ -20,7 +20,7 @@ class ViewUtils {
     messengerState.showSnackBar(
       SnackBar(
         content: Text(message),
-        duration: duration ?? DurationConstants.defaultSnackBarDuration,
+        duration: duration ?? Constants.defaultSnackBarDuration,
         backgroundColor: backgroundColor,
       ),
     );

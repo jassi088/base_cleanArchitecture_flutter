@@ -8,12 +8,12 @@ import '../domain.dart';
 class NotiUsecase extends BaseLoadMoreUseCase<Msg> {
   final NotiRepository _notiRepository;
 
-  NotiUsecase(this._notiRepository) : super(initPage: PagingConstants.initialPage);
+  NotiUsecase(this._notiRepository) : super(initPage: Constants.initialPage);
 
   @protected
   @override
   Future<PagedList<Msg>> buildUseCase() {
-    return _notiRepository.fetchNoti(page: page, limit: PagingConstants.itemsPerPage);
+    return _notiRepository.fetchNoti(page: page, limit: Constants.itemsPerPage);
   }
 
   // Future<void> setSeenAllMessage() async {

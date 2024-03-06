@@ -225,7 +225,7 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
   @override
   Future<T?> showGeneralDialog<T extends Object?>(
     AppPopupInfo appPopupInfo, {
-    Duration transitionDuration = DurationConstants.defaultGeneralDialogTransitionDuration,
+    Duration transitionDuration = Constants.defaultGeneralDialogTransitionDuration,
     m.Widget Function(m.BuildContext, m.Animation<double>, m.Animation<double>, m.Widget)?
         transitionBuilder,
     m.Color barrierColor = const m.Color(0x80000000),

@@ -12,7 +12,7 @@ abstract class BaseUseCase<Output> with LogMixin {
 
 abstract class BaseLoadMoreUseCase<T> extends BaseUseCase<Future<PagedList<T>>> {
   BaseLoadMoreUseCase({
-    this.initPage = PagingConstants.initialPage,
+    this.initPage = Constants.initialPage,
     this.initOffset = 0,
   })  : _output = LoadMoreOutput<T>(data: <T>[], page: initPage, offset: initOffset),
         _oldOutput = LoadMoreOutput<T>(data: <T>[], page: initPage, offset: initOffset);

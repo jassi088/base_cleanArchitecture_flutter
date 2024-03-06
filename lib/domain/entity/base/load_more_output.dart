@@ -11,7 +11,7 @@ class LoadMoreOutput<T> with _$LoadMoreOutput<T> {
   const factory LoadMoreOutput({
     required List<T> data,
     @Default(null) Object? otherData,
-    @Default(PagingConstants.initialPage) int page,
+    @Default(Constants.initialPage) int page,
     @Default(false) bool isRefreshSuccess,
     @Default(0) int offset,
     @Default(false) bool isLastPage,

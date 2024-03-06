@@ -16,7 +16,7 @@ mixin EventTransformerMixin<E extends BaseBlocEvent, S extends BaseBlocState>
   /// ignores subsequent events for a duration, then repeats this process
   /// Giữ lại sự kiện đầu tiên và loại bỏ những sự kiện tiếp theo trong khoảng thời gian duration.
   EventTransformer<Event> throttleTime<Event>({
-    Duration duration = DurationConstants.defaultEventTransfomDuration,
+    Duration duration = Constants.defaultEventTransfomDuration,
   }) {
     return (events, mapper) =>
         events.throttleTime(duration).log(name, logOnData: true).flatMap(mapper);
@@ -32,7 +32,7 @@ mixin EventTransformerMixin<E extends BaseBlocEvent, S extends BaseBlocState>
   /// This time span start after the last debounced event was emitted.
   /// Sử dụng hàm debounceTime() để chờ đợi khoảng thời gian duration trước khi chấp nhận sự kiện cuối cùng.
   EventTransformer<Event> debounceTime<Event>({
-    Duration duration = DurationConstants.defaultEventTransfomDuration,
+    Duration duration = Constants.defaultEventTransfomDuration,
   }) {
     return (events, mapper) =>
         events.debounceTime(duration).log(name, logOnData: true).flatMap(mapper);

@@ -45,7 +45,7 @@ class ExceptionHandler {
 
   void _showErrorSnackBar({
     required String message,
-    Duration duration = DurationConstants.defaultErrorVisibleDuration,
+    Duration duration = Constants.defaultErrorVisibleDuration,
   }) {
     navigator.showErrorSnackBar(message, duration: duration);
   }

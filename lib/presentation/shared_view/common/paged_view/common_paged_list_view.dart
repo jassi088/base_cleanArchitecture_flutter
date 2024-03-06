@@ -5,13 +5,12 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import '../../../../shared/shared.dart';
 import '../../../presentation.dart';
 
-
 class CommonPagedListView<T> extends StatelessWidget {
   const CommonPagedListView({
     required this.pagingController,
     required this.itemBuilder,
     this.animateTransitions = true,
-    this.transitionDuration = DurationConstants.defaultListGridTransitionDuration,
+    this.transitionDuration = Constants.defaultListGridTransitionDuration,
     this.firstPageErrorIndicator,
     this.newPageErrorIndicator,
     this.firstPageProgressIndicator,

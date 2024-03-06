@@ -15,9 +15,9 @@ class NetworkingFactory {
   static Dio createDio({BaseOptions? options, List<Interceptor> interceptors = const []}) {
     final dio = Dio(
       BaseOptions(
-        connectTimeout: options?.connectTimeout ?? ServerTimeoutConstants.connectTimeout,
-        receiveTimeout: options?.receiveTimeout ?? ServerTimeoutConstants.receiveTimeout,
-        sendTimeout: options?.sendTimeout ?? ServerTimeoutConstants.sendTimeout,
+        connectTimeout: options?.connectTimeout ?? Constants.connectTimeout,
+        receiveTimeout: options?.receiveTimeout ?? Constants.receiveTimeout,
+        sendTimeout: options?.sendTimeout ?? Constants.sendTimeout,
         baseUrl: options?.baseUrl ?? UrlConstants.appApiBaseUrl,
       ),
     );

@@ -17,7 +17,7 @@ class RetryOnErrorInterceptor extends BaseInterceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     if (!options.headers.containsKey(_retryHeaderKey)) {
-      options.headers[_retryCountKey] = RetryOnErrorConstants.maxRetries;
+      options.headers[_retryCountKey] = Constants.maxRetries;
     }
     super.onRequest(options, handler);
   }
@@ -27,7 +27,7 @@ class RetryOnErrorInterceptor extends BaseInterceptor {
     assert(err.requestOptions.headers[_retryCountKey] != null);
     final retryCount = err.requestOptions.headers[_retryCountKey] as int;
     if (retryCount > 0 && _shouldRetry(err)) {
-      await Future<void>.delayed(RetryOnErrorConstants.retryInterval);
+      await Future<void>.delayed(Constants.retryInterval);
       try {
         final response = await dio.fetch<dynamic>(
           err.requestOptions

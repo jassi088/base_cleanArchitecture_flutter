@@ -6,10 +6,10 @@ enum InitialAppRoute { login, main }
 
 // @JsonEnum()
 enum Gender {
-  male(ServerRequestResponseConstants.male),
-  female(ServerRequestResponseConstants.female),
-  other(ServerRequestResponseConstants.other),
-  unknown(ServerRequestResponseConstants.unknown);
+  male(Constants.male),
+  female(Constants.female),
+  other(Constants.other),
+  unknown(Constants.unknown);
 
   const Gender(this.serverValue);
   final int serverValue;

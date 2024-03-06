@@ -16,36 +16,35 @@ class AppPreferences {
   final EncryptedSharedPreferences _encryptedSharedPreferences;
 
   bool get isDarkMode {
-    return _sharedPreference.getBool(SharedPreferenceKeys.isDarkMode) ?? false;
+    return _sharedPreference.getBool(Constants.isDarkMode) ?? false;
   }
 
-  bool get isFirstLogin => _sharedPreference.getBool(SharedPreferenceKeys.isFirstLogin) ?? true;
+  bool get isFirstLogin => _sharedPreference.getBool(Constants.isFirstLogin) ?? true;
 
   // String get deviceToken {
-  //   return _sharedPreference.getString(SharedPreferenceKeys.deviceToken) ?? '';
+  //   return _sharedPreference.getString(Constants.deviceToken) ?? '';
   // }
 
-  // String get languageCode => _sharedPreference.getString(SharedPreferenceKeys.languageCode) ?? '';
+  // String get languageCode => _sharedPreference.getString(Constants.languageCode) ?? '';
 
-  bool get isFirstLaunchApp =>
-      _sharedPreference.getBool(SharedPreferenceKeys.isFirstLaunchApp) ?? true;
+  bool get isFirstLaunchApp => _sharedPreference.getBool(Constants.isFirstLaunchApp) ?? true;
 
   Future<String> get accessToken {
-    return _encryptedSharedPreferences.getString(SharedPreferenceKeys.accessToken);
+    return _encryptedSharedPreferences.getString(Constants.accessToken);
   }
 
   Future<String> get refreshToken {
-    return _encryptedSharedPreferences.getString(SharedPreferenceKeys.refreshToken);
+    return _encryptedSharedPreferences.getString(Constants.refreshToken);
   }
 
   bool get isLoggedIn {
-    final token = _sharedPreference.getString(SharedPreferenceKeys.accessToken) ?? '';
+    final token = _sharedPreference.getString(Constants.accessToken) ?? '';
 
     return token.isNotEmpty;
   }
 
   User? get currentUser {
-    final user = _sharedPreference.getString(SharedPreferenceKeys.currentUser);
+    final user = _sharedPreference.getString(Constants.currentUser);
     if (user == null) {
       return null;
     }
@@ -54,42 +53,42 @@ class AppPreferences {
   }
 
   Future<bool> saveIsFirstLogin(bool isFirstLogin) {
-    return _sharedPreference.setBool(SharedPreferenceKeys.isFirstLogin, isFirstLogin);
+    return _sharedPreference.setBool(Constants.isFirstLogin, isFirstLogin);
   }
 
   Future<bool> saveIsFirsLaunchApp(bool isFirstLaunchApp) {
-    return _sharedPreference.setBool(SharedPreferenceKeys.isFirstLaunchApp, isFirstLaunchApp);
+    return _sharedPreference.setBool(Constants.isFirstLaunchApp, isFirstLaunchApp);
   }
 
   Future<void> saveAccessToken(String token) async {
-    await _encryptedSharedPreferences.setString(SharedPreferenceKeys.accessToken, token);
+    await _encryptedSharedPreferences.setString(Constants.accessToken, token);
   }
 
   Future<void> saveRefreshToken(String token) async {
-    await _encryptedSharedPreferences.setString(SharedPreferenceKeys.refreshToken, token);
+    await _encryptedSharedPreferences.setString(Constants.refreshToken, token);
   }
 
   Future<bool> saveCurrentUser(User user) {
-    return _sharedPreference.setString(SharedPreferenceKeys.currentUser, json.encode(user));
+    return _sharedPreference.setString(Constants.currentUser, json.encode(user));
   }
 
   // Future<bool> saveDeviceToken(String token) {
-  //   return _sharedPreference.setString(SharedPreferenceKeys.deviceToken, token);
+  //   return _sharedPreference.setString(Constants.deviceToken, token);
   // }
 
   Future<void> clearCurrentUserData() async {
     await Future.wait([
-      _sharedPreference.remove(SharedPreferenceKeys.currentUser),
-      _sharedPreference.remove(SharedPreferenceKeys.accessToken),
-      _sharedPreference.remove(SharedPreferenceKeys.refreshToken),
+      _sharedPreference.remove(Constants.currentUser),
+      _sharedPreference.remove(Constants.accessToken),
+      _sharedPreference.remove(Constants.refreshToken),
     ]);
   }
 
   Future<bool> saveIsDarkMode(bool isDarkMode) {
-    return _sharedPreference.setBool(SharedPreferenceKeys.isDarkMode, isDarkMode);
+    return _sharedPreference.setBool(Constants.isDarkMode, isDarkMode);
   }
 
   Future<bool> saveLanguageCode(String languageCode) {
-    return _sharedPreference.setString(SharedPreferenceKeys.languageCode, languageCode);
+    return _sharedPreference.setString(Constants.languageCode, languageCode);
   }
 }
