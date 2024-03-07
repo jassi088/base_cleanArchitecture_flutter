@@ -1,7 +1,5 @@
 import '../shared.dart';
 
-enum Flavor { develop, qa, staging, production }
-
 class EnvConstants {
   const EnvConstants._();
 
