@@ -40,8 +40,6 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
       AppColors.of(context);
     }
 
-    // Tạo Provider cho navigator, các Widget con extends lại BasePageState khi dùng navigator sẽ biết
-    // đang đứng ở đâu và tìm lên thằng cha để showDialog hay Popup
     return Provider(
       create: (context) => navigator,
       child: MultiBlocProvider(
@@ -93,7 +91,7 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
     exceptionHandler
         .handleException(appExceptionWrapper, appExceptionWrapper.appException.message)
         .then((value) {
-      // appExceptionWrapper.exceptionCompleter?.complete();
+      appExceptionWrapper.exceptionCompleter?.complete();
     });
   }
 

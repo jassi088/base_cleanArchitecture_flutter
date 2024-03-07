@@ -11,25 +11,7 @@ class ExceptionHandler {
     switch (appExceptionWrapper.appException.appExceptionType) {
       case AppExceptionType.remote:
         final exception = appExceptionWrapper.appException as NetworkingException;
-        exception.networkExceptions.maybeWhen(
-          // requestTimeout: () async {
-          //   await _showErrorDialogWithRetry(
-          //     message: message,
-          //     onRetryPressed: () async {
-          //       await navigator.pop();
-          //       await appExceptionWrapper.doOnRetry?.call();
-          //     },
-          //   );
-          // },
-          // sendTimeout: () async {
-          //   await _showErrorDialogWithRetry(
-          //     message: message,
-          //     onRetryPressed: () async {
-          //       await navigator.pop();
-          //       await appExceptionWrapper.doOnRetry?.call();
-          //     },
-          //   );
-          // },
+        await exception.networkExceptions.maybeWhen(
           noInternetConnection: () async {
             return await _showErrorDialogWithRetry(
               message: message,
@@ -39,17 +21,9 @@ class ExceptionHandler {
               },
             );
           },
-          badRequest: (e) async {
-            return await _showErrorDialogWithRetry(
-              message: message,
-              onRetryPressed: () async {
-                await navigator.pop();
-                await appExceptionWrapper.doOnRetry?.call();
-              },
-            );
-          },
-          orElse: () => _showErrorSnackBar(message: message),
+          orElse: () async => _showErrorSnackBar(message: message),
         );
+        break;
       case AppExceptionType.parse:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.validation:
