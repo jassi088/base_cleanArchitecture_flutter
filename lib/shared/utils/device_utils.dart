@@ -7,6 +7,8 @@ import 'package:flutter_udid/flutter_udid.dart';
 
 import '../shared.dart';
 
+enum DeviceType { mobile, tablet }
+
 class DeviceUtils {
   const DeviceUtils._();
   static late DeviceType deviceType = _getDeviceType();

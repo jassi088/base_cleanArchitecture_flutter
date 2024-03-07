@@ -23,8 +23,6 @@ export 'helper/stream/dispose_bag.dart';
 export 'helper/stream/stream_logger.dart';
 // mixin
 export 'mixin/log_mixin.dart';
-// model
-export 'model/shared_enum.dart';
 // utils
 export 'utils/date_time_utils.dart';
 export 'utils/device_utils.dart';
