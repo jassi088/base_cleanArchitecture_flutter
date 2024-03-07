@@ -15,7 +15,7 @@ abstract class IAppDelegate {
   Future<void> run();
 }
 
-@singleton
+@lazySingleton
 class AppDelegate extends IAppDelegate {
   AppDelegate();
 
