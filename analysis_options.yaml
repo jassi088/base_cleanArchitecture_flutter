@@ -5,6 +5,7 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "**/*.config.dart"
+    - "tools/*.dart"
     # - "resources/lib/src/generated/intl/*.dart"
     # - "resources/lib/src/generated/*.dart"
   errors:
