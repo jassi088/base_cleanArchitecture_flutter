@@ -6,6 +6,6 @@
     "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock",
     "analysis_options.yaml": " all_lint_rules.yaml",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
-    "*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).gr.dart",
-  }
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).gr.dart, $(capture).config.dart",
+  },
 }
