@@ -21,7 +21,7 @@ class AppDelegate extends IAppDelegate {
 
   @override
   Future<Widget> build() async {
-    final initialResource = await _loadInitialResource();
+    final initialResource = getIt.get<AppUsecase>().loadInitialResourceUseCase;
     return MyApp(initialResource: initialResource);
   }
 
@@ -45,14 +45,5 @@ class AppDelegate extends IAppDelegate {
     Log.e(error, stackTrace: stackTrace, name: 'Uncaught exception');
 
     // report by Firebase Crashlytics here
-  }
-
-  Future<List<InitialAppRoute>> _loadInitialResource() async {
-    final result = runCatching(action: () => getIt.get<AppUsecase>().loadInitialResourceUseCase);
-
-    return result.when(
-      success: (output) => output,
-      failure: (e) => const [InitialAppRoute.main],
-    );
   }
 }
