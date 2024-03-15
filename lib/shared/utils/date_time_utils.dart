@@ -1,5 +1,7 @@
 import 'package:intl/intl.dart';
 
+DateTime get now => DateTime.now();
+
 class DateTimeUtils {
   DateTimeUtils._();
 
@@ -11,58 +13,46 @@ class DateTimeUtils {
   }
 
   static int timezoneOffset() {
-    return DateTime.now().timeZoneOffset.inHours;
+    return now.timeZoneOffset.inHours;
   }
 
-  static DateTime toLocalFromTimestamp({required int utcTimestampMillis}) {
+  static DateTime utcToLocal(int utcTimestampMillis) {
     return DateTime.fromMillisecondsSinceEpoch(utcTimestampMillis, isUtc: true).toLocal();
   }
 
-  static DateTime toUtcFromTimestamp(int localTimestampMillis) {
+  static DateTime localToUtc(int localTimestampMillis) {
     return DateTime.fromMillisecondsSinceEpoch(localTimestampMillis, isUtc: false).toUtc();
   }
 
-  static DateTime startTimeOfDate() {
-    final now = DateTime.now();
+  static DateTime? tryParse(
+    String? dateTime, {
+    bool utc = false,
+    String? format,
+    String? locale,
+  }) {
+    if (dateTime == null) return null;
 
-    return DateTime(now.year, now.month, now.day);
-  }
+    if (format == null) return DateTime.tryParse(dateTime);
 
-  static DateTime? toDateTime(String dateTimeString, {bool isUtc = false}) {
-    final dateTime = DateTime.tryParse(dateTimeString);
-    if (dateTime != null) {
-      if (isUtc) {
-        return DateTime.utc(dateTime.year, dateTime.month, dateTime.day, dateTime.hour,
-            dateTime.minute, dateTime.second, dateTime.millisecond, dateTime.microsecond);
-      }
-
-      return dateTime;
+    final DateFormat dateFormat = DateFormat(format, locale);
+    try {
+      return dateFormat.parse(dateTime, utc);
+    } catch (e) {
+      return null;
     }
-
-    return null;
-  }
-
-  static DateTime? toNormalizeDateTime(String dateTimeString, {bool isUtc = false}) {
-    final dateTime = DateTime.tryParse('-123450101 $dateTimeString');
-    if (dateTime != null) {
-      if (isUtc) {
-        return DateTime.utc(dateTime.year, dateTime.month, dateTime.day, dateTime.hour,
-            dateTime.minute, dateTime.second, dateTime.millisecond, dateTime.microsecond);
-      }
-
-      return dateTime;
-    }
-
-    return null;
   }
 }
 
 extension DateTimeExtensions on DateTime {
-  String toStringWithFormat(String format) {
-    return DateFormat(format).format(this);
+  String toStringWithFormat(String format, {String? locale}) {
+    return DateFormat(format, locale).format(this);
   }
 
   DateTime get lastDateOfMonth {
     return DateTime(year, month + 1, 0);
+  }
+
+  DateTime withTimeAtStartOfDay() {
+    return DateTime(year, month, day);
   }
 }
