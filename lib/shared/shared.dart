@@ -23,10 +23,10 @@ export 'helper/type/result.dart';
 // utils
 export 'utils/date_time_utils.dart';
 export 'utils/device_utils.dart';
+export 'utils/extension.dart';
 export 'utils/file_utils.dart';
 export 'utils/intent_utils.dart';
 export 'utils/log_utils.dart';
-export 'utils/num_utils.dart';
 export 'utils/parse_utils.dart';
 export 'utils/validation_utils.dart';
 export 'utils/view_utils.dart';
