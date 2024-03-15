@@ -16,6 +16,15 @@ class ValidationUtils {
 
     return true;
   }
+	
+  /// Check if a string is a valid password.
+  /// Return true if it is valid.
+  static bool isValidPassword(String password) {
+    const _mimimumPasswordLength = 6;
+    const _whitespace = ' ';
+
+    return password.length >= _mimimumPasswordLength && !password.contains(_whitespace);
+  }
 
   /// Check if a string is valid phone number.
   /// Return true if it is valid.
