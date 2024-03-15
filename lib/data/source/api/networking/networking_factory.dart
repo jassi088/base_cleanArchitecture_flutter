@@ -1,18 +1,11 @@
 import 'package:dartx/dartx.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 import '../../../../shared/shared.dart';
 import '../../../data.dart';
 
 class NetworkingFactory {
-  static List<Interceptor> requiredInterceptors(Dio dio) => [
-        if (kDebugMode) CustomLogInterceptor(),
-        ConnectivityInterceptor(),
-        RetryOnErrorInterceptor(dio),
-      ];
-
-  static Dio createDio({BaseOptions? options, List<Interceptor> interceptors = const []}) {
+  static Dio createDio({BaseOptions? options, List<Interceptor> Function(Dio)? interceptors}) {
     final dio = Dio(
       BaseOptions(
         connectTimeout: options?.connectTimeout ?? Constants.connectTimeout,
@@ -22,10 +15,8 @@ class NetworkingFactory {
       ),
     );
 
-    final sortedInterceptors = [
-      ...requiredInterceptors(dio),
-      ...interceptors,
-    ].sortedByDescending((element) {
+    final sortedInterceptors =
+        (interceptors?.call(dio) ?? <Interceptor>[]).sortedByDescending((element) {
       return element is BaseInterceptor ? element.priority : -1;
     });
 
