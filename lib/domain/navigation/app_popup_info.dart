@@ -8,12 +8,12 @@ class AppPopupInfo with _$AppPopupInfo {
   const factory AppPopupInfo.confirmDialog({
     @Default('') String message,
     Function()? onPressed,
-    Function()? onPressedCancel,
+    Function()? onCancel,
   }) = _ConfirmDialog;
 
   const factory AppPopupInfo.errorWithRetryDialog({
     @Default('') String message,
     Function()? onRetryPressed,
-    Function()? onPressedCancel,
+    Function()? onCancel,
   }) = _ErrorWithRetryDialog;
 }
