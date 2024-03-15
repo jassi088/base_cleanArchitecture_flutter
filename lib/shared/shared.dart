@@ -20,8 +20,6 @@ export 'helper/stream/disposable.dart';
 export 'helper/stream/dispose_bag.dart';
 export 'helper/stream/stream_logger.dart';
 export 'helper/type/result.dart';
-// mixin
-export 'mixin/log_mixin.dart';
 // utils
 export 'utils/date_time_utils.dart';
 export 'utils/device_utils.dart';
