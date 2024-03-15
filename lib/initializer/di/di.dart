@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,7 +18,7 @@ abstract class ServiceModule {
   Dio dioProd(SharedPreferences sharedPreferences) => NetworkingFactory.createDio(
         options: BaseOptions(baseUrl: UrlConstants.appApiBaseUrl),
         interceptors: (dio) => [
-          if (kDebugMode) CustomLogInterceptor(),
+          if (LogConfig.logApi) CustomLogInterceptor(),
           ConnectivityInterceptor(),
           RetryOnErrorInterceptor(dio),
           ApiTokenInterceptor(getIt.get<AppInfo>(), getIt.get<AppPreferences>()),

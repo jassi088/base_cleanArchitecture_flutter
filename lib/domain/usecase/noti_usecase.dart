@@ -12,8 +12,8 @@ class NotiUsecase extends BaseLoadMoreUseCase<Msg> {
 
   @protected
   @override
-  Future<PagedList<Msg>> buildUseCase() {
-    return _notiRepository.fetchNoti(page: page, limit: Constants.itemsPerPage);
+  Future<PagedList<Msg>> buildUseCase({required int page, required int limit}) {
+    return _notiRepository.fetchNoti(page: page, limit: limit);
   }
 
   // Future<void> setSeenAllMessage() async {
