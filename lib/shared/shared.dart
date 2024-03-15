@@ -16,11 +16,10 @@ export 'exception/parse/parse_exception.dart';
 export 'exception/validation/validation_exception.dart';
 // helper
 export 'helper/app_info.dart';
-export 'helper/run_catching/result.dart';
-export 'helper/run_catching/run_catching.dart';
 export 'helper/stream/disposable.dart';
 export 'helper/stream/dispose_bag.dart';
 export 'helper/stream/stream_logger.dart';
+export 'helper/type/result.dart';
 // mixin
 export 'mixin/log_mixin.dart';
 // utils
