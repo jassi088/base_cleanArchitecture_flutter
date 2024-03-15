@@ -75,8 +75,8 @@ class _NotiPageState extends BasePageState<NotiPage, NotiBloc> {
                       itemBuilder: (context, msg, index) {
                         return Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: Dimens.d8.responsive(),
-                            vertical: Dimens.d4.responsive(),
+                            horizontal: 8.rps,
+                            vertical: 4.rps,
                           ),
                           child: VisibilityDetector(
                             key: Key('$index'),
@@ -112,13 +112,10 @@ class _ListViewLoader extends StatelessWidget {
     return ListView.builder(
       itemCount: UiConstants.shimmerItemCount,
       itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: Dimens.d8.responsive(),
-          vertical: Dimens.d4.responsive(),
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 8.rps, vertical: 4.rps),
         child: ShimmerContainerEffectWidget(
           width: double.infinity,
-          height: Dimens.d60.responsive(),
+          height: 60.rps,
           borderRadius: 15,
         ),
       ),

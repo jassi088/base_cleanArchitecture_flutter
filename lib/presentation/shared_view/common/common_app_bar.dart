@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import '../../presentation.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -33,7 +34,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleTextStyle,
     this.systemOverlayStyle,
     this.leadingIconColor,
-  }) : preferredSize = Size.fromHeight(height ?? Dimens.d56.responsive());
+  }) : preferredSize = Size.fromHeight(height ?? 56.rps);
 
   final String? text;
   final VoidCallback? onLeadingPressed;
@@ -93,7 +94,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
               // onTap: onLeadingPressed ?? () => context.read<AppNavigator>().pop(),
               onTap: onLeadingPressed ?? () => Navigator.pop(context),
               child: Padding(
-                padding: EdgeInsets.only(left: Dimens.d16.responsive()),
+                padding: EdgeInsets.only(left: 16.rps),
                 // child: _buildIcon(
                 //   leadingIcon == LeadingIcon.close
                 //       ? Assets.images.iconClose
@@ -122,8 +123,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   // Widget _buildIcon(SvgGenImage svg) {
   //   return svg.svg(
   //     colorFilter: leadingIconColor?.let((it) => ColorFilter.mode(it, BlendMode.srcIn)),
-  //     width: Dimens.d24.responsive(),
-  //     height: Dimens.d24.responsive(),
+  //     width: Dimens.d24.rps,
+  //     height: Dimens.d24.rps,
   //   );
   // }
 }

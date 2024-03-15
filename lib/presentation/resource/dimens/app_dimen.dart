@@ -69,13 +69,17 @@ class AppDimen {
   }
 }
 
-extension ResponsiveDoubleExtension on double {
+extension ResponsiveDoubleExtension on num {
   double responsive({double? tablet, double? ultraTablet}) {
     return AppDimen.current.responsiveDimens(
-      mobile: this,
+      mobile: toDouble(),
       tablet: tablet,
       ultraTablet: ultraTablet,
     );
+  }
+
+  double get rps {
+    return responsive();
   }
 }
 

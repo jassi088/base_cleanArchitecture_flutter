@@ -15,22 +15,14 @@ class AppTextStyles {
     // height: 1.0,
   );
 
-  static TextStyle s14w400Primary({
-    double? tablet,
-    double? ultraTablet,
-  }) =>
-      _baseTextStyle.merge(TextStyle(
-        fontSize: Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+  static TextStyle s14w400Primary() => _baseTextStyle.merge(TextStyle(
+        fontSize: 14.rps,
         fontWeight: FontWeight.w400,
         color: AppColors.current.primaryTextColor,
       ));
 
-  static TextStyle s14w400Secondary({
-    double? tablet,
-    double? ultraTablet,
-  }) =>
-      _baseTextStyle.merge(TextStyle(
-        fontSize: Dimens.d14.responsive(tablet: tablet, ultraTablet: ultraTablet),
+  static TextStyle s14w400Secondary() => _baseTextStyle.merge(TextStyle(
+        fontSize: 14.rps,
         fontWeight: FontWeight.w400,
         color: AppColors.current.secondaryTextColor,
       ));

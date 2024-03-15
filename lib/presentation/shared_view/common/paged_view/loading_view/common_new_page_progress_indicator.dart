@@ -9,7 +9,7 @@ class CommonNewPageProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(Dimens.d8.responsive()),
+        padding: EdgeInsets.all(8.rps),
         child: const CircularProgressIndicator.adaptive(),
       ),
     );

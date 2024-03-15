@@ -30,7 +30,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
       body: Center(
         child: SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(Dimens.d16.responsive()),
+            padding: EdgeInsets.all(16.rps),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -39,21 +39,21 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                   fit: BoxFit.cover,
                   width: 100,
                 ),
-                SizedBox(height: Dimens.d24.responsive()),
+                SizedBox(height: 24.rps),
                 AppTextField(
                   title: 'Email',
                   hintText: 'Email',
                   onChanged: (email) => bloc.add(EmailTextFieldChanged(email: email.trim())),
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: Dimens.d24.responsive()),
+                SizedBox(height: 24.rps),
                 AppTextField(
                   title: 'Password',
                   hintText: 'Password',
                   onChanged: (pass) => bloc.add(PasswordTextFieldChanged(password: pass.trim())),
                   keyboardType: TextInputType.visiblePassword,
                 ),
-                SizedBox(height: Dimens.d15.responsive()),
+                SizedBox(height: 15.rps),
                 BlocBuilder<LoginBloc, LoginState>(
                   buildWhen: (previous, current) => previous.onPageError != current.onPageError,
                   builder: (_, state) => Text(

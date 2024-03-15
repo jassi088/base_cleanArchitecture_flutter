@@ -13,7 +13,6 @@ export 'navigation/routes/app_router.gr.dart';
 export 'navigation/routes/route_guard.dart';
 // resource
 export 'resource/dimens/app_dimen.dart';
-export 'resource/dimens/dimens.dart';
 export 'resource/generated/assets.gen.dart';
 export 'resource/styles/app_colors.dart';
 export 'resource/styles/app_text_styles.dart';

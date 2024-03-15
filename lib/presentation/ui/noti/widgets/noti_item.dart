@@ -14,7 +14,7 @@ class NotiItem extends StatelessWidget {
       child: ListTile(
         title: Text(
           'Cảnh báo! - ${msg.time} 🗓️',
-          style: TextStyle(fontSize: Dimens.d18.responsive(), fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18.rps, fontWeight: FontWeight.bold),
         ),
         subtitle: Text(msg.body),
       ),
