@@ -16,7 +16,7 @@ class ValidationUtils {
 
     return true;
   }
-	
+
   /// Check if a string is a valid password.
   /// Return true if it is valid.
   static bool isValidPassword(String password) {
@@ -29,7 +29,7 @@ class ValidationUtils {
   /// Check if a string is valid phone number.
   /// Return true if it is valid.
   static bool isValidPhoneNumber(String phoneNumber) {
-    if (!RegExp(r'(^(?:[+0]9)?[0-9]{10,11}$)').hasMatch(phoneNumber.trim())) {
+    if (!RegExp(r'^\+?[0-9]{10,11}$').hasMatch(phoneNumber.replaceAll(' ', ''))) {
       return false;
     }
 
