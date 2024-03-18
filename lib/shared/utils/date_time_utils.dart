@@ -1,11 +1,14 @@
+import 'package:clock/clock.dart';
 import 'package:intl/intl.dart';
 
-DateTime get now => DateTime.now();
+DateTime get now => clock.now();
+
+DateTime get today => now.withTimeAtStartOfDay();
 
 class DateTimeUtils {
   DateTimeUtils._();
 
-  static int daysBetween(DateTime from, DateTime to) {
+  static int daysBetween({required DateTime from, required DateTime to}) {
     from = DateTime(from.year, from.month, from.day);
     to = DateTime(to.year, to.month, to.day);
 
@@ -28,13 +31,14 @@ class DateTimeUtils {
     String? dateTime, {
     bool utc = false,
     String? format,
-    String? locale,
+    // String? locale,
   }) {
     if (dateTime == null) return null;
 
     if (format == null) return DateTime.tryParse(dateTime);
 
-    final DateFormat dateFormat = DateFormat(format, locale);
+    final DateFormat dateFormat = DateFormat(format);
+    // DateFormat(format, locale ?? LanguageCode.defaultValue.localeCode);
     try {
       return dateFormat.parse(dateTime, utc);
     } catch (e) {
