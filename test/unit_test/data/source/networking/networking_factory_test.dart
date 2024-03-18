@@ -5,16 +5,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class _MockAppInfo extends Mock implements AppInfo {}
-
-class _MockAppPreferences extends Mock implements AppPreferences {}
+import '../../../../common/common.dart';
 
 class _MockDio extends Mock implements Dio {}
 
 void main() {
-  final appPreferences = _MockAppPreferences();
-  final appInfo = _MockAppInfo();
-
   group('createDio', () {
     test('when specifying `connectTimeout`, `receiveTimeout`, `sendTimeout`, `baseUrl`', () async {
       final dio = NetworkingFactory.createDio(
@@ -55,7 +50,7 @@ void main() {
       final defaultInterceptorLength = Dio().interceptors.length;
 
       final customLogInterceptor = CustomLogInterceptor();
-      final connectivityInterceptor = ConnectivityInterceptor();
+      final connectivityInterceptor = ConnectivityInterceptor(connectivityHelper);
       final retryOnErrorInterceptor = RetryOnErrorInterceptor(_MockDio());
       final apiTokenInterceptor = ApiTokenInterceptor(appInfo, appPreferences);
       final dio = NetworkingFactory.createDio(
