@@ -48,7 +48,7 @@ void main() {
                     e.error is NetworkingException &&
                     (e.error as NetworkingException).networkExceptions ==
                         const NetworkExceptions.noInternetConnection(),
-                'error',
+                'networkExceptions',
                 true,
               ),
             ),
