@@ -19,7 +19,7 @@ abstract class ServiceModule {
         options: BaseOptions(baseUrl: UrlConstants.appApiBaseUrl),
         interceptors: (dio) => [
           if (LogConfig.logApi) CustomLogInterceptor(),
-          ConnectivityInterceptor(),
+          ConnectivityInterceptor(getIt.get<ConnectivityHelper>()),
           RetryOnErrorInterceptor(dio),
           ApiTokenInterceptor(getIt.get<AppInfo>(), getIt.get<AppPreferences>()),
         ],

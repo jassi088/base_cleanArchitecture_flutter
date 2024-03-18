@@ -16,6 +16,7 @@ export 'exception/parse/parse_exception.dart';
 export 'exception/validation/validation_exception.dart';
 // helper
 export 'helper/app_info.dart';
+export 'helper/connectivity_helper.dart';
 export 'helper/stream/disposable.dart';
 export 'helper/stream/dispose_bag.dart';
 export 'helper/stream/stream_logger.dart';
