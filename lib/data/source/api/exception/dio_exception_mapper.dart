@@ -54,7 +54,7 @@ class DioExceptionMapper extends ExceptionMapper<NetworkingException> {
           }
         }
       } on FormatException catch (_) {
-        return NetworkingException(networkExceptions: const NetworkExceptions.formatException());
+        return NetworkingException(networkExceptions: const NetworkExceptions.formatExceptions());
       } catch (_) {
         return NetworkingException(networkExceptions: const NetworkExceptions.unexpectedError());
       }

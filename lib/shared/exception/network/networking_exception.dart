@@ -19,7 +19,7 @@ class NetworkingException extends AppException {
         notImplemented: () => 'Chưa được triển khai',
         serviceUnavailable: () => 'Dịch vụ không khả dụng',
         noInternetConnection: () => 'Không có kết nối internet',
-        formatException: () => 'Lỗi định dạng',
+        formatExceptions: () => 'Lỗi định dạng',
         unableToProcess: () => 'Không thể xử lý yêu cầu',
         defaultError: (error) => 'Lỗi mặc định: $error',
         unexpectedError: () => 'Lỗi không mong đợi',

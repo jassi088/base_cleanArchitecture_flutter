@@ -28,7 +28,7 @@ class NetworkExceptions with _$NetworkExceptions {
 
   const factory NetworkExceptions.noInternetConnection() = NoInternetConnection;
 
-  const factory NetworkExceptions.formatException() = FormatException;
+  const factory NetworkExceptions.formatExceptions() = FormatExceptions;
 
   const factory NetworkExceptions.unableToProcess() = UnableToProcess;
 
