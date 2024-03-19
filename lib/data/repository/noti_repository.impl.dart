@@ -13,14 +13,8 @@ class NotiRepositoryImpl implements NotiRepository {
   Future<PagedList<Msg>> fetchNoti({required int page, required int limit}) async {
     try {
       final response = await _notiApi.fetchNoti(index: page, limit: limit);
-      // final List<dynamic> jsonList = response.msg;
-      // final List<Msg> data = jsonList.map((e) => Msg.fromJson(e)).toList();
 
-      return PagedList(
-        total: response.total,
-        otherData: response.numberNew,
-        data: response.msg,
-      );
+      return PagedList(data: response.msg, otherData: response.numberNew, total: response.total);
     } catch (e) {
       throw DioExceptionMapper().map(e);
     }
