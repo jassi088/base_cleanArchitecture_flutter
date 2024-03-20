@@ -10,9 +10,9 @@ import 'login.dart';
 @Injectable()
 class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
   LoginBloc(this._authUsecase) : super(const LoginState()) {
-    on<EmailTextFieldChanged>(_onEmailTextFieldChanged, transformer: debounceTime());
+    on<EmailTextFieldChanged>(_onEmailTextFieldChanged, transformer: distinct());
 
-    on<PasswordTextFieldChanged>(_onPasswordTextFieldChanged, transformer: debounceTime());
+    on<PasswordTextFieldChanged>(_onPasswordTextFieldChanged, transformer: distinct());
 
     on<LoginButtonPressed>(_onLoginButtonPressed, transformer: log());
 

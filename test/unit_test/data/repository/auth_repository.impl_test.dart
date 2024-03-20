@@ -28,7 +28,7 @@ void main() {
 
         when(() => _mockAuthApi.login({'username': username, 'password': password}))
             .thenAnswer((_) async => user);
-        when(() => appPreferences.saveAccessToken(user.token)).thenAnswer((_) => Future.value());
+        when(() => appPreferences.saveAccessToken(user.token)).thenAnswer((_) async {});
 
         await authRepositoryImpl.login(username: username, password: password);
 
