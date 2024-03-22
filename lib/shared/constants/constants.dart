@@ -47,6 +47,7 @@ class Constants {
   static const defaultGeneralDialogTransitionDuration = Duration(milliseconds: 200);
   static const defaultSnackBarDuration = Duration(seconds: 3);
   static const defaultErrorVisibleDuration = Duration(seconds: 3);
+  static const defaultSuccessVisibleDuration = Duration(seconds: 1);
 
   // DateTime Format
   static const uiDateDmy = 'dd/MM/yyyy';
