@@ -42,7 +42,7 @@ class CommonDialog extends StatelessWidget {
     return AlertDialog(
       actions: actions
           .map((e) => TextButton(
-                onPressed: e.onPressed?.call(),
+                onPressed: e.onPressed,
                 child: Text(
                   e.text ?? 'OK',
                   style: e.isDefault
@@ -60,7 +60,7 @@ class CommonDialog extends StatelessWidget {
     return CupertinoAlertDialog(
       actions: actions
           .map((e) => CupertinoDialogAction(
-                onPressed: e.onPressed?.call(),
+                onPressed: e.onPressed,
                 child: Text(
                   e.text ?? 'OK',
                   style: e.isDefault

@@ -43,11 +43,11 @@ class AppUsecase {
           onPressed: () async {
             await _appRepository.clearCurrentUserData();
             await _navigator.replace(const AppRouteInfo.login());
+            //return await _repository.logout();
           },
         ),
         useRootNavigator: true,
       );
-      //return await _repository.logout();
     }
   }
 }

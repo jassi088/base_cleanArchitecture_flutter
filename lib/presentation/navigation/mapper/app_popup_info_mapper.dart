@@ -12,8 +12,8 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
       confirmDialog: (message, onPressed, onCancel) {
         return CommonDialog(
           actions: [
-            PopupButton(text: 'OK', onPressed: () => onPressed ?? () => navigator.pop()),
-            PopupButton(text: 'Cancel', onPressed: () => onCancel ?? () => navigator.pop()),
+            PopupButton(text: 'OK', onPressed: onPressed ?? () => navigator.pop()),
+            PopupButton(text: 'Cancel', onPressed: onCancel ?? () => navigator.pop()),
           ],
           message: message,
         );
@@ -23,10 +23,10 @@ class AppPopupInfoMapper extends BasePopupInfoMapper {
           actions: [
             PopupButton(
               text: 'Retry',
-              onPressed: () => onRetryPressed ?? () => navigator.pop(),
+              onPressed: onRetryPressed ?? () => navigator.pop(),
               isDefault: true,
             ),
-            PopupButton(text: 'Cancel', onPressed: () => onCancel ?? () => navigator.pop()),
+            PopupButton(text: 'Cancel', onPressed: onCancel ?? () => navigator.pop()),
           ],
           message: message,
         );
