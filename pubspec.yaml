@@ -14,7 +14,7 @@ dependencies:
   async: ^2.11.0
   auto_route: ^7.8.4
   clock: ^1.1.1
-  connectivity_plus: ^5.0.2
+  connectivity_plus: 5.0.2
   cupertino_icons: ^1.0.6
   dartx: ^1.2.0
   device_info_plus: ^9.0.2
@@ -36,11 +36,12 @@ dependencies:
   # objectbox_flutter_libs: ^2.5.0
   json_annotation: ^4.8.1
   package_info_plus: ^5.0.1
+  path_provider: 2.1.1
   provider: ^6.1.1
   retrofit: ^4.1.0
   shared_preferences: ^2.2.2
   shimmer: ^3.0.0
-  url_launcher: 6.0.17
+  url_launcher: 6.2.2
   url_strategy: ^0.2.0
   visibility_detector: ^0.4.0+2
   

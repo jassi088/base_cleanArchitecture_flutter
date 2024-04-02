@@ -18,7 +18,7 @@ flutter_native_splash:
   #background_image_dark: "assets/dark-background.png"
   #image_dark: assets/splash-invert.png
 
-  android: false
+  #android: false
   #ios: false
   #web: false
 

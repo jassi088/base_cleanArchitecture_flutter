@@ -12,6 +12,7 @@ analyzer:
     invalid_annotation_target: ignore
     unused_import: warning
     void_checks: ignore
+    deprecated_member_use: ignore
 
 custom_lint:
   rules:

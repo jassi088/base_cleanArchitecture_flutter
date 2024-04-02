@@ -4,9 +4,13 @@
    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="base_clean_architecture"
+        android:label="base_clean_Architecture"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/launcher_icon"
+        android:largeHeap="true"
+        android:fullBackupOnly="false"
+        android:allowBackup="false"
+        tools:replace="android:allowBackup">
         <activity
             android:name=".MainActivity"
             android:exported="true"
