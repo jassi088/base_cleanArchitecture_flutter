@@ -11,3 +11,27 @@ remove_splash:
 
 gen_env:
 	dart run tools/gen_env.dart
+
+chromedriver:
+	chromedriver --port=4444
+
+# login_test_chrome:
+# 	flutter drive \
+# 	--driver=integration_test/test_driver/integration_driver.dart \
+# 	--target integration_test/login_test.dart \
+#  	-d chrome 
+
+login_test:
+	flutter drive \
+	--driver=integration_test/test_driver/integration_driver.dart \
+	--target integration_test/login_test.dart \
+
+main_test:
+	flutter drive \
+	--driver=integration_test/test_driver/integration_driver.dart \
+	--target integration_test/main_test.dart \
+
+auth_test:
+	flutter drive \
+	--driver=integration_test/test_driver/integration_driver.dart \
+	--target integration_test/auth_test.dart \
