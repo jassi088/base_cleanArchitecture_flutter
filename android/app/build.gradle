@@ -12,6 +12,11 @@ if (localPropertiesFile.exists()) {
     }
 }
 
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
@@ -22,8 +27,17 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+// START: FlutterFire Configuration
+// apply plugin: 'com.google.gms.google-services'
+// END: FlutterFire Configuration
+
+// def keystoreProperties = new Properties()
+//    def keystorePropertiesFile = rootProject.file('key.properties')
+//    if (keystorePropertiesFile.exists()) {
+//        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//    }
+
 android {
-    namespace "com.example.base_clean_architecture"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -42,20 +56,107 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.base_clean_architecture"
+        applicationId "com.app.buzzlp"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 26
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        multiDexEnabled true
     }
+
+    // signingConfigs {
+    //    release {
+    //        keyAlias keystoreProperties['keyAlias']
+    //        keyPassword keystoreProperties['keyPassword']
+    //        storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+    //        storePassword keystoreProperties['storePassword']
+    //    }
+    // }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
+            // signingConfig signingConfigs.release
+            // minifyEnabled true
+            // shrinkResources true
+            // proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
+    flavorDimensions("flavor-type")
+    productFlavors {
+        develop {
+            dimension "flavor-type"
+            versionCode = 41
+            versionName = "1.0.1"
+            applicationId "com.app.buzzlp.dev"
+            //manifestPlaceholders["host"] = "dev.chatwork.com"
+            manifestPlaceholders["applicationName"] = "Develop"
+            // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
+            // manifestPlaceholders["apiSecret"] = dartEnvironmentVariables.API_SECRET
+            // buildConfigField "String", "API_KEY", "\"${dartEnvironmentVariables.API_KEY}\""
+            // buildConfigField "String", "API_SECRET", "\"${dartEnvironmentVariables.API_SECRET}\""
+        }
+
+        qa {
+            dimension "flavor-type"
+            versionCode = 11
+            versionName = "1.0.1"
+            applicationId "com.app.buzzlp.qa"
+            // manifestPlaceholders["host"] = "dev.chatwork.com"
+            manifestPlaceholders["applicationName"] = "Qa"
+            // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
+            // manifestPlaceholders["apiSecret"] = dartEnvironmentVariables.API_SECRET
+            // buildConfigField "String", "API_KEY", "\"${dartEnvironmentVariables.API_KEY}\""
+            // buildConfigField "String", "API_SECRET", "\"${dartEnvironmentVariables.API_SECRET}\""
+        }
+
+        staging {
+            dimension "flavor-type"
+            versionCode = 12
+            versionName = "1.0.3"
+            applicationId "com.app.buzzlp.stg"
+            // manifestPlaceholders["host"] = "stg.facebook.com"
+            manifestPlaceholders["applicationName"] = "Staging"
+            // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
+            // manifestPlaceholders["apiSecret"] = dartEnvironmentVariables.API_SECRET
+            // buildConfigField(
+            //     type = "String",
+            //     name = "API_KEY",
+            //     value = dartEnvironmentVariables.API_KEY
+            // )
+            // buildConfigField(
+            //     type = "String",
+            //     name = "API_SECRET",
+            //     value = dartEnvironmentVariables.API_SECRET
+            // )
+        }
+
+        production {
+            dimension "flavor-type"
+            versionCode = 1
+            versionName = "1.0.0"
+            applicationId "com.app.buzzlp.app"
+            // manifestPlaceholders["host"] = "chatwork.com"
+            manifestPlaceholders["applicationName"] = "Production"
+            // manifestPlaceholders["apiKey"] = dartEnvironmentVariables.API_KEY
+            // manifestPlaceholders["apiSecret"] = dartEnvironmentVariables.API_SECRET
+            // buildConfigField(
+            //     type = "String",
+            //     name = "API_KEY",
+            //     value = dartEnvironmentVariables.API_KEY
+            // )
+            // buildConfigField(
+            //     type = "String",
+            //     name = "API_SECRET",
+            //     value = dartEnvironmentVariables.API_SECRET
+            // )
         }
     }
 }
@@ -64,4 +165,7 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:2.0.1'
+}

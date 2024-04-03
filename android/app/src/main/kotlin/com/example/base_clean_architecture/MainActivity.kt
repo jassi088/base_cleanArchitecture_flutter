@@ -1,4 +1,4 @@
-package com.example.base_clean_architecture
+package com.app.buzzlp
 
 import io.flutter.embedding.android.FlutterActivity
 
