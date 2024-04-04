@@ -2,6 +2,7 @@
   "explorer.fileNesting.enabled": true,
   "editor.stickyScroll.enabled": true,
   "explorer.fileNesting.expand": false,
+  "editor.fontFamily": "JetBrains Mono",
   "explorer.fileNesting.patterns": {
     "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock",
     "analysis_options.yaml": " all_lint_rules.yaml",
