@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
 
 import '../domain.dart';
@@ -35,14 +36,14 @@ class AppUsecase {
     return await _appRepository.clearCurrentUserData();
   }
 
-  Future<void> logoutUseCase() async {
+  Future<void> logoutUseCase(PageRouteInfo loginRoute) async {
     if (_appRepository.isLoggedIn) {
       await _navigator.showDialog(
         AppPopupInfo.confirmDialog(
           message: 'Bạn có chắc muốn đăng xuất',
           onPressed: () async {
             await _appRepository.clearCurrentUserData();
-            await _navigator.replace(const AppRouteInfo.login());
+            await _navigator.replaceAll([loginRoute]);
             //return await _repository.logout();
           },
         ),

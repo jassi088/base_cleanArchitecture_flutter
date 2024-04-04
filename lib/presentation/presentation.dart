@@ -4,10 +4,9 @@ export 'exception_handler/exception_handler.dart';
 export 'helper/local_push_notification_helper.dart';
 // navigation
 export 'navigation/app_navigator.impl.dart';
-export 'navigation/base/app_navigator_observer.dart';
-export 'navigation/base/base_mapper.dart';
 export 'navigation/mapper/app_popup_info_mapper.dart';
-export 'navigation/mapper/app_route_info_mapper.dart';
+export 'navigation/mapper/base_mapper.dart';
+export 'navigation/observer/app_navigator_observer.dart';
 export 'navigation/routes/app_router.dart';
 export 'navigation/routes/app_router.gr.dart';
 export 'navigation/routes/route_guard.dart';

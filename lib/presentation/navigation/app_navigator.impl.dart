@@ -10,7 +10,7 @@ import '../presentation.dart';
 
 @LazySingleton(as: AppNavigator)
 class AppNavigatorImpl extends AppNavigator with LogMixin {
-  AppNavigatorImpl(this._appRouter, this._appPopupInfoMapper, this._appRouteInfoMapper);
+  AppNavigatorImpl(this._appRouter, this._appPopupInfoMapper);
 
   final tabRoutes = const [
     HomeTab(),
@@ -21,7 +21,6 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
 
   final AppRouter _appRouter;
   final BasePopupInfoMapper _appPopupInfoMapper;
-  final BaseRouteInfoMapper _appRouteInfoMapper;
 
   StackRouter? get _currentTabRouter => tabsRouter?.stackRouterOfIndex(currentBottomTab);
 
@@ -79,39 +78,39 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
   }
 
   @override
-  Future<T?> push<T extends Object?>(AppRouteInfo appRouteInfo) {
+  Future<T?> push<T extends Object?>(PageRouteInfo routeInfo) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('push $appRouteInfo');
+      logD('push $routeInfo');
     }
 
-    return _appRouter.push<T>(_appRouteInfoMapper.map(appRouteInfo));
+    return _appRouter.push<T>(routeInfo);
   }
 
   @override
-  Future<void> pushAll(List<AppRouteInfo> listAppRouteInfo) {
+  Future<void> pushAll(List<PageRouteInfo> listRouteInfo) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('pushAll $listAppRouteInfo');
+      logD('pushAll $listRouteInfo');
     }
 
-    return _appRouter.pushAll(_appRouteInfoMapper.mapList(listAppRouteInfo));
+    return _appRouter.pushAll(listRouteInfo);
   }
 
   @override
-  Future<T?> replace<T extends Object?>(AppRouteInfo appRouteInfo) {
+  Future<T?> replace<T extends Object?>(PageRouteInfo routeInfo) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('replace by $appRouteInfo');
+      logD('replace by $routeInfo');
     }
 
-    return _appRouter.replace<T>(_appRouteInfoMapper.map(appRouteInfo));
+    return _appRouter.replace<T>(routeInfo);
   }
 
   @override
-  Future<void> replaceAll(List<AppRouteInfo> listAppRouteInfo) {
+  Future<void> replaceAll(List<PageRouteInfo> listRouteInfo) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('replaceAll by $listAppRouteInfo');
+      logD('replaceAll by $listRouteInfo');
     }
 
-    return _appRouter.replaceAll(_appRouteInfoMapper.mapList(listAppRouteInfo));
+    return _appRouter.replaceAll(listRouteInfo);
   }
 
   @override
@@ -127,18 +126,17 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
 
   @override
   Future<T?> popAndPush<T extends Object?, R extends Object?>(
-    AppRouteInfo appRouteInfo, {
+    PageRouteInfo routeInfo, {
     R? result,
     bool useRootNavigator = false,
   }) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('popAndPush $appRouteInfo with result = $result, useRootNav = $useRootNavigator');
+      logD('popAndPush $routeInfo with result = $result, useRootNav = $useRootNavigator');
     }
 
     return useRootNavigator
-        ? _appRouter.popAndPush<T, R>(_appRouteInfoMapper.map(appRouteInfo), result: result)
-        : _currentTabRouterOrRootRouter.popAndPush<T, R>(_appRouteInfoMapper.map(appRouteInfo),
-            result: result);
+        ? _appRouter.popAndPush<T, R>(routeInfo, result: result)
+        : _currentTabRouterOrRootRouter.popAndPush<T, R>(routeInfo, result: result);
   }
 
   @override
@@ -178,15 +176,14 @@ class AppNavigatorImpl extends AppNavigator with LogMixin {
   }
 
   @override
-  Future<void> popAndPushAll(List<AppRouteInfo> listAppRouteInfo, {bool useRootNavigator = false}) {
+  Future<void> popAndPushAll(List<PageRouteInfo> listRouteInfo, {bool useRootNavigator = false}) {
     if (LogConfig.enableNavigatorObserverLog) {
-      logD('popAndPushAll $listAppRouteInfo, useRootNav = $useRootNavigator');
+      logD('popAndPushAll $listRouteInfo, useRootNav = $useRootNavigator');
     }
 
     return useRootNavigator
-        ? _appRouter.popAndPushAll(_appRouteInfoMapper.mapList(listAppRouteInfo))
-        : _currentTabRouterOrRootRouter
-            .popAndPushAll(_appRouteInfoMapper.mapList(listAppRouteInfo));
+        ? _appRouter.popAndPushAll(listRouteInfo)
+        : _currentTabRouterOrRootRouter.popAndPushAll(listRouteInfo);
   }
 
   @override

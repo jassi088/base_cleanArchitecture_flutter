@@ -64,8 +64,7 @@ class AppBloc extends BaseBloc<AppEvent, AppState> {
   FutureOr<void> _onAppLogoutPressed(AppLogoutPressed event, Emitter<AppState> emit) {
     return runBlocCatching(
       action: () async {
-        await _appUsecase.logoutUseCase();
-        await navigator.replace(const AppRouteInfo.login());
+        await _appUsecase.logoutUseCase(const LoginRoute());
       },
     );
   }

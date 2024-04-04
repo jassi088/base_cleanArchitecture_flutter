@@ -11,7 +11,6 @@ export 'entity/user.dart';
 // navigation
 export 'navigation/app_navigator.dart';
 export 'navigation/app_popup_info.dart';
-export 'navigation/app_route_info.dart';
 // repository
 export 'repository/app_repository.dart';
 export 'repository/auth_repository.dart';

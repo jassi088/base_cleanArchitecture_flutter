@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../app/app.dart';
 import '../../../../domain/domain.dart';
-import 'setting.dart';
+import '../../../presentation.dart';
 
 @Injectable()
 class SettingBloc extends BaseBloc<SettingEvent, SettingState> {
@@ -21,7 +21,7 @@ class SettingBloc extends BaseBloc<SettingEvent, SettingState> {
   ) async {
     return runBlocCatching(
       action: () async {
-        await _appUsecase.logoutUseCase();
+        await _appUsecase.logoutUseCase(const LoginRoute());
       },
     );
   }

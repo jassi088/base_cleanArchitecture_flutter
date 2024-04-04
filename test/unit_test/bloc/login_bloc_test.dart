@@ -35,8 +35,7 @@ void main() {
         when(() => _mockAuthUsecase.loginUsecase(username: inputEmail, password: inputPassword))
             .thenAnswer((_) async {});
 
-        when(() => _navigator.replace(const AppRouteInfo.main()))
-            .thenAnswer((_) => Future.value(true));
+        when(() => _navigator.replace(const MainRoute())).thenAnswer((_) => Future.value(true));
       },
       build: () => bloc,
       act: (bloc) {
@@ -51,7 +50,7 @@ void main() {
       ],
       wait: Constants.defaultEventTransfomDuration,
       verify: (_) {
-        verify(() => _navigator.replace(const AppRouteInfo.main())).called(1);
+        verify(() => _navigator.replace(const MainRoute())).called(1);
       },
     );
 
@@ -83,7 +82,7 @@ void main() {
         ),
       ],
       verify: (_) {
-        verifyNever(() => _navigator.replace(const AppRouteInfo.main()));
+        verifyNever(() => _navigator.replace(const MainRoute()));
       },
     );
 

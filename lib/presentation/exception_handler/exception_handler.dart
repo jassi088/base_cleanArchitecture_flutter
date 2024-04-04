@@ -27,8 +27,7 @@ class ExceptionHandler {
       case AppExceptionType.parse:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.validation:
-        await _showErrorDialog(message: message);
-        break;
+        return await _showErrorDialog(message: message);
     }
   }
 

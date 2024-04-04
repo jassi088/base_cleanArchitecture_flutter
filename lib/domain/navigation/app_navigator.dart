@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/shared.dart';
@@ -16,23 +17,23 @@ abstract class AppNavigator {
 
   void navigateToBottomTab(int index, {bool notify = true});
 
-  Future<T?> push<T extends Object?>(AppRouteInfo appRouteInfo);
+  Future<T?> push<T extends Object?>(PageRouteInfo routeInfo);
 
-  Future<void> pushAll(List<AppRouteInfo> listAppRouteInfo);
+  Future<void> pushAll(List<PageRouteInfo> listRouteInfo);
 
-  Future<T?> replace<T extends Object?>(AppRouteInfo appRouteInfo);
+  Future<T?> replace<T extends Object?>(PageRouteInfo routeInfo);
 
-  Future<void> replaceAll(List<AppRouteInfo> listAppRouteInfo);
+  Future<void> replaceAll(List<PageRouteInfo> listRouteInfo);
 
   Future<bool> pop<T extends Object?>({T? result, bool useRootNavigator = false});
 
   Future<T?> popAndPush<T extends Object?, R extends Object?>(
-    AppRouteInfo appRouteInfo, {
+    PageRouteInfo routeInfo, {
     R? result,
     bool useRootNavigator = false,
   });
 
-  Future<void> popAndPushAll(List<AppRouteInfo> listAppRouteInfo, {bool useRootNavigator = false});
+  Future<void> popAndPushAll(List<PageRouteInfo> appRouteInfo, {bool useRootNavigator = false});
 
   void popUntilRoot({bool useRootNavigator = false});
 

@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../app/app.dart';
 import '../../../../domain/domain.dart';
-import 'login.dart';
+import '../../../presentation.dart';
 
 @Injectable()
 class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
@@ -46,7 +46,7 @@ class LoginBloc extends BaseBloc<LoginEvent, LoginState> {
       action: () async {
         await _authUsecase.loginUsecase(username: state.email, password: state.password);
         if (state.onPageError == '') navigator.showSuccessSnackBar('Login successfully');
-        await navigator.replace(const AppRouteInfo.main());
+        await navigator.replace(const MainRoute());
       },
       doOnError: (e) async {
         emit(state.copyWith(onPageError: e.message));
