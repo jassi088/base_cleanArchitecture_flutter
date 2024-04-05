@@ -68,16 +68,13 @@ class _NotiPageState extends BasePageState<NotiPage, NotiBloc> {
 
                 return completer.future;
               },
-              child: state.isShimmerLoading && state.notifications.data.isEmpty
+              child: state.isShimmerLoading
                   ? const _ListViewLoader()
                   : CommonPagedListView<Msg>(
                       pagingController: _pagingController,
                       itemBuilder: (context, msg, index) {
                         return Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 8.rps,
-                            vertical: 4.rps,
-                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 8.rps, vertical: 4.rps),
                           child: VisibilityDetector(
                             key: Key('$index'),
                             onVisibilityChanged: (VisibilityInfo info) {
