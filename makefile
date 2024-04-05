@@ -1,5 +1,8 @@
 BUILD_CMD=./tools/build_and_run_app.sh
 
+pub_get:
+	sh clean.sh -f
+
 update_app_icon:
 	flutter pub run flutter_launcher_icons:main -f app_icon/app_icon.yaml
 
@@ -11,6 +14,9 @@ remove_splash:
 
 gen_env:
 	dart run tools/gen_env.dart
+
+ut:
+	flutter test test/unit_test
 
 chromedriver:
 	chromedriver --port=4444
