@@ -19,6 +19,7 @@ class NetworkingException extends AppException {
         notImplemented: () => 'Chưa được triển khai',
         serviceUnavailable: () => 'Dịch vụ không khả dụng',
         noInternetConnection: () => 'Không có kết nối internet',
+        refreshTokenFailed: () => 'Token Expired',
         formatExceptions: () => 'Lỗi định dạng',
         unableToProcess: () => 'Không thể xử lý yêu cầu',
         defaultError: (error) => 'Lỗi mặc định: $error',

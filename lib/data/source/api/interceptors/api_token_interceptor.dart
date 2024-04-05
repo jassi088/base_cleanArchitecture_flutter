@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../shared/shared.dart';
@@ -42,7 +45,8 @@ class ApiTokenInterceptor extends BaseInterceptor {
   }
 
   String userAgentClientHintsHeader() {
-    // return '${Platform.operatingSystem} - ${_appInfo.versionName}(${_appInfo.versionCode})';
-    return '${_appInfo.versionName}(${_appInfo.versionCode})';
+    return !kIsWeb
+        ? '${Platform.operatingSystem} - ${_appInfo.versionName}(${_appInfo.versionCode})'
+        : '${_appInfo.versionName}(${_appInfo.versionCode})';
   }
 }

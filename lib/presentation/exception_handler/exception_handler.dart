@@ -13,11 +13,20 @@ class ExceptionHandler {
         final exception = appExceptionWrapper.appException as NetworkingException;
         await exception.networkExceptions.maybeWhen(
           noInternetConnection: () async {
-            return await _showErrorDialogWithRetry(
+            await _showErrorDialogWithRetry(
               message: message,
               onRetryPressed: () async {
                 await navigator.pop();
                 await appExceptionWrapper.doOnRetry?.call();
+              },
+            );
+          },
+          refreshTokenFailed: () async {
+            await _showErrorDialog(
+              isRefreshTokenFailed: true,
+              message: message,
+              onPressed: () {
+                navigator.pop();
               },
             );
           },
@@ -27,7 +36,7 @@ class ExceptionHandler {
       case AppExceptionType.parse:
         return _showErrorSnackBar(message: message);
       case AppExceptionType.validation:
-        return await _showErrorDialog(message: message);
+        await _showErrorDialog(message: message);
     }
   }
 

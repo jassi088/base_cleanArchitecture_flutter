@@ -22,6 +22,7 @@ abstract class ServiceModule {
           ConnectivityInterceptor(getIt.get<ConnectivityHelper>()),
           RetryOnErrorInterceptor(dio),
           ApiTokenInterceptor(getIt.get<AppInfo>(), getIt.get<AppPreferences>()),
+          // RefreshTokenInterceptor(dio, getIt.get<AppPreferences>()),
         ],
       );
 }

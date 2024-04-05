@@ -117,6 +117,9 @@ abstract class BaseBlocDelegate<E extends BaseBlocEvent, S extends BaseBlocState
 
   bool _forceHandleError(AppException appException) {
     return appException is NetworkingException;
-    // && appException.networkExceptions == NetworkExceptions.refreshTokenFailed;
+    // && appException.networkExceptions.maybeWhen(
+    //       refreshTokenFailed: () => true,
+    //       orElse: () => false,
+    //     );
   }
 }

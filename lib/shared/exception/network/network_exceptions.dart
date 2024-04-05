@@ -28,6 +28,8 @@ class NetworkExceptions with _$NetworkExceptions {
 
   const factory NetworkExceptions.noInternetConnection() = NoInternetConnection;
 
+  const factory NetworkExceptions.refreshTokenFailed() = RefreshTokenFailed;
+
   const factory NetworkExceptions.formatExceptions() = FormatExceptions;
 
   const factory NetworkExceptions.unableToProcess() = UnableToProcess;

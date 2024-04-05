@@ -96,5 +96,7 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
   }
 
   @override
-  void onRefreshTokenFailed() {}
+  void onRefreshTokenFailed() {
+    appBloc.add(const AppLogoutPressed());
+  }
 }
