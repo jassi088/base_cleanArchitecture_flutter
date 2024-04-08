@@ -17,13 +17,13 @@ export 'exception/validation/validation_exception.dart';
 // helper
 export 'helper/app_info.dart';
 export 'helper/connectivity_helper.dart';
+export 'helper/device_helper.dart';
 export 'helper/stream/disposable.dart';
 export 'helper/stream/dispose_bag.dart';
 export 'helper/stream/stream_logger.dart';
 export 'helper/type/result.dart';
 // utils
 export 'utils/date_time_utils.dart';
-export 'helper/device_helper.dart';
 export 'utils/extension.dart';
 export 'utils/file_utils.dart';
 export 'utils/intent_utils.dart';
