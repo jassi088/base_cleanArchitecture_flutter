@@ -20,7 +20,7 @@ void main() {
 
   group('test `login` function', () {
     test(
-      'login - successful login save access_token',
+      'login - successful login save access_token & saveRefreshToken',
       () async {
         const username = 'test_user';
         const password = 'test_password';
@@ -29,10 +29,12 @@ void main() {
         when(() => _mockAuthApi.login({'username': username, 'password': password}))
             .thenAnswer((_) async => user);
         when(() => appPreferences.saveAccessToken(user.token)).thenAnswer((_) async {});
+        when(() => appPreferences.saveRefreshToken(user.token)).thenAnswer((_) async {});
 
         await authRepositoryImpl.login(username: username, password: password);
 
         verify(() => appPreferences.saveAccessToken(user.token)).called(1);
+        verify(() => appPreferences.saveRefreshToken(user.token)).called(1);
       },
     );
 
@@ -48,6 +50,7 @@ void main() {
         await authRepositoryImpl.login(username: username, password: password);
 
         verifyNever(() => appPreferences.saveAccessToken(any()));
+        verifyNever(() => appPreferences.saveRefreshToken(any()));
       },
     );
 

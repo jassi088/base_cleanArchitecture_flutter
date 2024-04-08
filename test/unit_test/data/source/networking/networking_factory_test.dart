@@ -52,7 +52,7 @@ void main() {
       final customLogInterceptor = CustomLogInterceptor();
       final connectivityInterceptor = ConnectivityInterceptor(connectivityHelper);
       final retryOnErrorInterceptor = RetryOnErrorInterceptor(_MockDio());
-      final apiTokenInterceptor = ApiTokenInterceptor(appInfo, appPreferences);
+      final apiTokenInterceptor = ApiTokenInterceptor(appInfo, deviceHelper, appPreferences);
       final dio = NetworkingFactory.createDio(
         interceptors: (dio) => [
           connectivityInterceptor,
