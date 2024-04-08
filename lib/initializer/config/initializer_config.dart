@@ -20,9 +20,11 @@ class InitializerConfig extends ApplicationConfig {
     di.configureInjection(environment: Environment.prod);
     await di.getIt.get<AppInfo>().init();
     Bloc.observer = AppBlocObserver();
-    await ViewUtils.setPreferredOrientations(DeviceUtils.deviceType == DeviceType.mobile
-        ? UiConstants.mobileOrientation
-        : UiConstants.tabletOrientation);
+    await ViewUtils.setPreferredOrientations(
+      di.getIt.get<DeviceHelper>().deviceType == DeviceType.mobile
+          ? UiConstants.mobileOrientation
+          : UiConstants.tabletOrientation,
+    );
     ViewUtils.setSystemUIOverlayStyle(UiConstants.systemUiOverlay);
     // await LocalPushNotificationHelper.init();
   }

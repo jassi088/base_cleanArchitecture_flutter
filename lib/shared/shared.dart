@@ -23,7 +23,7 @@ export 'helper/stream/stream_logger.dart';
 export 'helper/type/result.dart';
 // utils
 export 'utils/date_time_utils.dart';
-export 'utils/device_utils.dart';
+export 'helper/device_helper.dart';
 export 'utils/extension.dart';
 export 'utils/file_utils.dart';
 export 'utils/intent_utils.dart';

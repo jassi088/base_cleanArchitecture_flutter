@@ -4,16 +4,13 @@ import 'package:android_id/android_id.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_udid/flutter_udid.dart';
-
-import '../shared.dart';
+import 'package:injectable/injectable.dart';
 
 enum DeviceType { mobile, tablet }
 
-class DeviceUtils {
-  const DeviceUtils._();
-  static late DeviceType deviceType = _getDeviceType();
-
-  static Future<String> getDeviceId() async {
+@LazySingleton()
+class DeviceHelper {
+  Future<String> get deviceId async {
     if (Platform.isIOS) {
       return await FlutterUdid.udid; // unique ID on iOS
     } else {
@@ -25,7 +22,7 @@ class DeviceUtils {
     }
   }
 
-  static Future<String> getDeviceModelName() async {
+  Future<String> get deviceModelName async {
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
     if (Platform.isIOS) {
       final IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
@@ -38,12 +35,16 @@ class DeviceUtils {
     }
   }
 
-  static DeviceType _getDeviceType() {
+  DeviceType get deviceType {
+    const _maxMobileWidthForDeviceType = 550;
+
     return MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.first)
                 .size
                 .shortestSide <
-            Constants.maxMobileWidthForDeviceType
+            _maxMobileWidthForDeviceType
         ? DeviceType.mobile
         : DeviceType.tablet;
   }
+
+  String get operatingSystem => Platform.operatingSystem;
 }

@@ -21,7 +21,11 @@ abstract class ServiceModule {
           if (LogConfig.logApi) CustomLogInterceptor(),
           ConnectivityInterceptor(getIt.get<ConnectivityHelper>()),
           RetryOnErrorInterceptor(dio),
-          ApiTokenInterceptor(getIt.get<AppInfo>(), getIt.get<AppPreferences>()),
+          ApiTokenInterceptor(
+            getIt.get<AppInfo>(),
+            getIt.get<DeviceHelper>(),
+            getIt.get<AppPreferences>(),
+          ),
           // RefreshTokenInterceptor(dio, getIt.get<AppPreferences>()),
         ],
       );

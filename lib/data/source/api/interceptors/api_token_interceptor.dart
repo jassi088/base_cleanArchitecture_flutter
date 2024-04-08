@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -9,9 +7,10 @@ import '../../../data.dart';
 
 @Injectable()
 class ApiTokenInterceptor extends BaseInterceptor {
-  ApiTokenInterceptor(this._appInfo, this._appPreferences);
+  ApiTokenInterceptor(this._appInfo, this._deviceHelper, this._appPreferences);
 
   final AppInfo _appInfo;
+  final DeviceHelper _deviceHelper;
   final AppPreferences _appPreferences;
 
   final Map<String, dynamic> _headers = {};
@@ -46,7 +45,7 @@ class ApiTokenInterceptor extends BaseInterceptor {
 
   String userAgentClientHintsHeader() {
     return !kIsWeb
-        ? '${Platform.operatingSystem} - ${_appInfo.versionName}(${_appInfo.versionCode})'
+        ? '${_deviceHelper.operatingSystem} - ${_appInfo.versionName}(${_appInfo.versionCode})'
         : '${_appInfo.versionName}(${_appInfo.versionCode})';
   }
 }
