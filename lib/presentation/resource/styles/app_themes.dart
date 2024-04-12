@@ -6,6 +6,7 @@ import '../../presentation.dart';
 final lightTheme = ThemeData(
   brightness: Brightness.light,
   splashColor: Colors.transparent,
+  // fontFamily: defaultTargetPlatform == TargetPlatform.android ? FontFamily.notoSansJP : null,
 )..addAppColor(
     AppThemeType.light,
     AppColors.defaultAppColor,
