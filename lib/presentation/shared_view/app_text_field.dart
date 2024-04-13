@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/shared.dart';
 import '../presentation.dart';
 
 class AppTextField extends StatelessWidget {
@@ -11,6 +12,7 @@ class AppTextField extends StatelessWidget {
     this.onChanged,
     this.onTap,
     this.keyboardType = TextInputType.text,
+    this.validator,
     super.key,
   });
 
@@ -19,23 +21,23 @@ class AppTextField extends StatelessWidget {
   final SvgGenImage? suffixIcon;
   final void Function(String)? onChanged;
   final VoidCallback? onTap;
+  final String? Function(String?)? validator;
   final TextInputType keyboardType;
   final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(title, style: AppTextStyles.s14w400Secondary()),
-        ),
+        Text(title, style: AppTextStyles.s14w400Secondary()),
         SizedBox(height: 8.rps),
-        TextField(
+        TextFormField(
           onTap: onTap,
           onChanged: onChanged,
           controller: controller,
-          decoration: InputDecoration(hintText: hintText),
+          validator: validator,
+          decoration: InputDecoration(hintText: hintText, border: const OutlineInputBorder()),
           keyboardType: keyboardType,
         ),
       ],

@@ -15,6 +15,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget buildPage(BuildContext context) {
     return CommonScaffold(
@@ -32,57 +34,77 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
         child: SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.all(16.rps),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image(
-                  image: AssetImage(Assets.images.appIcon.path),
-                  fit: BoxFit.cover,
-                  width: 100,
-                ),
-                SizedBox(height: 24.rps),
-                AppTextField(
-                  title: 'Email',
-                  hintText: 'Email',
-                  onChanged: (email) => bloc.add(EmailTextFieldChanged(email: email.trim())),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                SizedBox(height: 24.rps),
-                AppTextField(
-                  title: 'Password',
-                  hintText: 'Password',
-                  onChanged: (pass) => bloc.add(PasswordTextFieldChanged(password: pass.trim())),
-                  keyboardType: TextInputType.visiblePassword,
-                ),
-                SizedBox(height: 15.rps),
-                BlocBuilder<LoginBloc, LoginState>(
-                  buildWhen: (previous, current) => previous.onPageError != current.onPageError,
-                  builder: (_, state) => Text(
-                    state.onPageError,
-                    style: AppTextStyles.s14w400Secondary(),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image(
+                    image: AssetImage(Assets.images.appIcon.path),
+                    fit: BoxFit.cover,
+                    width: 100,
                   ),
-                ),
-                BlocBuilder<LoginBloc, LoginState>(
-                  buildWhen: (previous, current) =>
-                      previous.isLoginButtonEnabled != current.isLoginButtonEnabled,
-                  builder: (context, state) {
-                    return ElevatedButton(
-                      onPressed: state.isLoginButtonEnabled
-                          ? () => bloc.add(const LoginButtonPressed())
-                          : null,
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(AppColors.current.primaryColor
-                            .withOpacity(state.isLoginButtonEnabled ? 1 : 0.5)),
-                      ),
-                      child: Text('Login', style: AppTextStyles.s14w400Primary()),
-                    );
-                  },
-                ),
-              ],
+                  SizedBox(height: 24.rps),
+                  AppTextField(
+                    title: 'Email',
+                    hintText: 'Email',
+                    onChanged: (email) => bloc.add(EmailTextFieldChanged(email: email.trim())),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Vui lòng điền đầy đủ thông tin';
+                      }
+                      return null;
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                  ),
+                  SizedBox(height: 24.rps),
+                  AppTextField(
+                    title: 'Password',
+                    hintText: 'Password',
+                    onChanged: (pass) => bloc.add(PasswordTextFieldChanged(password: pass.trim())),
+                    validator: (value) {
+                      if (!ValidationUtils.isValidPassword(value!)) {
+                        return 'Password phải có hơn 6 ký tự';
+                      }
+                      return null;
+                    },
+                    keyboardType: TextInputType.visiblePassword,
+                  ),
+                  SizedBox(height: 15.rps),
+                  BlocBuilder<LoginBloc, LoginState>(
+                    buildWhen: (previous, current) => previous.onPageError != current.onPageError,
+                    builder: (_, state) => Text(
+                      state.onPageError,
+                      style: AppTextStyles.s14w400Secondary(),
+                    ),
+                  ),
+                  BlocBuilder<LoginBloc, LoginState>(
+                    buildWhen: (previous, current) =>
+                        previous.isLoginButtonEnabled != current.isLoginButtonEnabled,
+                    builder: (context, state) {
+                      return ElevatedButton(
+                        onPressed: state.isLoginButtonEnabled ? _onLogin : null,
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(AppColors.current.primaryColor
+                              .withOpacity(state.isLoginButtonEnabled ? 1 : 0.5)),
+                        ),
+                        child: Text('Login', style: AppTextStyles.s14w400Primary()),
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onLogin() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    _formKey.currentState!.save();
+    bloc.add(const LoginButtonPressed());
   }
 }
