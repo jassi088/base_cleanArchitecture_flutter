@@ -19,29 +19,29 @@ run_dev:
 	sh $(BUILD_CMD) develop run
 
 run_qa:
-	$(BUILD_CMD) qa run
+	sh $(BUILD_CMD) qa run
 
 run_stg:
-	$(BUILD_CMD) staging run
+	sh $(BUILD_CMD) staging run
 	
 run_prod:
-	$(BUILD_CMD) production run
+	sh $(BUILD_CMD) production run
 
 # It is used in CI/CD
 build_dev_apk:
-	$(BUILD_CMD) develop build apk
+	sh $(BUILD_CMD) develop build apk
 
 # It is used in CI/CD
 build_qa_apk:
-	$(BUILD_CMD) qa build apk
+	sh $(BUILD_CMD) qa build apk
 
 # It is used in CI/CD
 build_stg_apk:
-	$(BUILD_CMD) staging build apk
+	sh $(BUILD_CMD) staging build apk
 
 # It is used in CI/CD
 build_prod_apk:
-	$(BUILD_CMD) production build apk
+	sh $(BUILD_CMD) production build apk
 
 ut:
 	flutter test test/unit_test
