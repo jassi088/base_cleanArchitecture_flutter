@@ -18,17 +18,42 @@ gen_env:
 run_dev:
 	sh $(BUILD_CMD) develop run
 
+run_qa:
+	$(BUILD_CMD) qa run
+
+run_stg:
+	$(BUILD_CMD) staging run
+	
+run_prod:
+	$(BUILD_CMD) production run
+
+# It is used in CI/CD
+build_dev_apk:
+	$(BUILD_CMD) develop build apk
+
+# It is used in CI/CD
+build_qa_apk:
+	$(BUILD_CMD) qa build apk
+
+# It is used in CI/CD
+build_stg_apk:
+	$(BUILD_CMD) staging build apk
+
+# It is used in CI/CD
+build_prod_apk:
+	$(BUILD_CMD) production build apk
+
 ut:
 	flutter test test/unit_test
 
 chromedriver:
 	chromedriver --port=4444
 
-# login_test_chrome:
-# 	flutter drive \
-# 	--driver=integration_test/test_driver/integration_driver.dart \
-# 	--target integration_test/login_test.dart \
-#  	-d chrome 
+login_test_chrome:
+	flutter drive \
+	--driver=integration_test/test_driver/integration_driver.dart \
+	--target integration_test/login_test.dart \
+ 	-d chrome 
 
 login_test:
 	flutter drive \
@@ -40,7 +65,3 @@ main_test:
 	--driver=integration_test/test_driver/integration_driver.dart \
 	--target integration_test/main_test.dart \
 
-auth_test:
-	flutter drive \
-	--driver=integration_test/test_driver/integration_driver.dart \
-	--target integration_test/auth_test.dart \

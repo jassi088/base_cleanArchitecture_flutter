@@ -1,16 +1,21 @@
-# base_clean_architecture
-
-A new Flutter project.
-
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Requirements
 
-A few resources to get you started if this is your first Flutter project:
+- Dart: 3.4.0
+- Flutter SDK: 3.21.0
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Install
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- WARN: If you already installed `make`, you could omit this step.
+
+- Install make:
+    - Run `choco install make`
+  
+ ### Config and run app
+
+- cd to root folder of project
+- Run `make gen_env`
+- Run `make pub_get`
+- Run `make run_dev`
+- Run & Enjoy!
