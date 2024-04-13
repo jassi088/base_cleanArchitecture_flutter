@@ -15,6 +15,9 @@ remove_splash:
 gen_env:
 	dart run tools/gen_env.dart
 
+run_dev:
+	sh $(BUILD_CMD) develop run
+
 ut:
 	flutter test test/unit_test
 

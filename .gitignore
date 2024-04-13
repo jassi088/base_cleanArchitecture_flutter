@@ -32,7 +32,7 @@ pubspec.lock
 .pub/
 /build/
 **/coverage
-*.sh
+# *.sh
 
 # Web related
 
