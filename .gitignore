@@ -59,7 +59,7 @@ app.*.map.json
 resources/lib/src/generated
 app/lib/ui/res/generated
 data/lib/src/repository/model/generated
-lib/presentation/resource/generated
+lib/shared/resource/generated
 
 tools/*/*.jar
 tools/gen_text_styles/output/

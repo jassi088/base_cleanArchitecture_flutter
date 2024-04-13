@@ -22,6 +22,9 @@ export 'helper/stream/disposable.dart';
 export 'helper/stream/dispose_bag.dart';
 export 'helper/stream/stream_logger.dart';
 export 'helper/type/result.dart';
+// resource
+export 'resource/generated/assets.gen.dart';
+export 'resource/generated/fonts.gen.dart';
 // utils
 export 'utils/date_time_utils.dart';
 export 'utils/extension.dart';
