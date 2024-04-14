@@ -24,6 +24,7 @@ class ShimmerContainerEffectWidget extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: baseColor ?? Colors.grey[500]!.withOpacity(0.3),
       highlightColor: highlightColor ?? Colors.white.withOpacity(0.6),
+      period: const Duration(milliseconds: 800),
       child: Container(
         margin: margin,
         width: width,

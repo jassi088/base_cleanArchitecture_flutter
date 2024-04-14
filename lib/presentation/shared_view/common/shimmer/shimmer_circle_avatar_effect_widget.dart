@@ -9,6 +9,7 @@ class ShimmerCircleAvatarEffectWidget extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: Colors.grey[500]!.withOpacity(0.3),
       highlightColor: Colors.white.withOpacity(0.6),
+      period: const Duration(milliseconds: 800),
       child: CircleAvatar(backgroundColor: Colors.white.withOpacity(0.9), radius: 9),
     );
   }
