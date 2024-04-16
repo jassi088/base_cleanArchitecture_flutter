@@ -28,7 +28,7 @@
 | Navigation | [auto_route](https://pub.dev/packages/auto_route) - A declarative routing solution, where everything needed for navigation is automatically generated. |
 | Dependency Injection | [get_it](https://pub.dev/packages/get_it) , [injectable](https://pub.dev/packages/injectable) - Simple direct Service Locator that allows to decouple the interface from a concrete implementation and to access the concrete implementation from everywhere in your App. |
 | Networking | [retrofit](https://pub.dev/packages/retrofit) - An dio client generator using source_gen and inspired by Chopper and Retrofit. |
-| Shared Preferences | [encrypted_shared_preferences](https://pub.dev/packages/encrypted_shared_preferences) - A plugin that stores Shared Preferences as encrypted values on device storage. |
+| Preferences | [encrypted_shared_preferences](https://pub.dev/packages/encrypted_shared_preferences) - A plugin that stores Shared Preferences as encrypted values on device storage. |
 | Data class | [freezed](https://pub.dev/packages/freezed) , [json_serializable](https://pub.dev/packages/json_serializable) - Code generation for immutable classes that has a simple syntax/API without compromising on the features. |
 | Paging | [infinite_scroll_pagination](https://pub.dev/packages/infinite_scroll_pagination) - Lazily load and display pages of items as the user scrolls down your screen. |
 | Utils | [rxdart](https://pub.dev/packages/rxdart) , [dartx](https://pub.dev/packages/dartx) , [async](https://pub.dev/packages/async) - RxDart is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart Streams api. |
