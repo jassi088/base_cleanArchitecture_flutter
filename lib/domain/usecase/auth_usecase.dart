@@ -18,7 +18,7 @@ class AuthUsecase {
       throw const ValidationException(ValidationExceptionKind.invalidPassword);
     }
 
-    return await _authRepository.login(username: username, password: password);
+    await _authRepository.login(username: username, password: password);
   }
 
   Future<void> resetPasswordUsecase({
@@ -40,7 +40,7 @@ class AuthUsecase {
       throw const ValidationException(ValidationExceptionKind.invalidEmail);
     }
 
-    return await _authRepository.resetPassword(
+    await _authRepository.resetPassword(
       token: token,
       email: email,
       password: password,
@@ -55,7 +55,7 @@ class AuthUsecase {
     if (!ValidationUtils.isValidEmail(email)) {
       throw const ValidationException(ValidationExceptionKind.invalidEmail);
     }
-    return await _authRepository.forgotPassword(email);
+    await _authRepository.forgotPassword(email);
   }
 
   Future<void> registerUsecase({

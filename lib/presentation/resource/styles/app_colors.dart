@@ -38,7 +38,7 @@ class AppColors {
   );
 
   static AppColors of(BuildContext context) {
-    final appColor = Theme.of(context).appColor;
+    final appColor = context.theme.appColor;
 
     current = appColor;
 

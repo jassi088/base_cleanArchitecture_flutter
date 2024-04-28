@@ -46,11 +46,12 @@ class AppBloc extends BaseBloc<AppEvent, AppState> {
   Future<void> _onAppInitiated(AppInitiated event, Emitter<AppState> emit) async {
     await runBlocCatching(
       action: () async {
-        final output = _appUsecase.getInitialAppDataUseCase;
-        _updateThemeSetting(output);
+        final outputDarkMode = _appUsecase.isDarkModeUseCase;
+        final outputLoggedIn = _appUsecase.isLoggedInUseCase;
+        _updateThemeSetting(outputDarkMode);
         emit(state.copyWith(
-          isDarkTheme: output,
-          isLoggedIn: output,
+          isDarkTheme: outputDarkMode,
+          isLoggedIn: outputLoggedIn,
           // languageCode: output.languageCode,
         ));
       },

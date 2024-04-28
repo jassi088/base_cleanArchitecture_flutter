@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../shared/shared.dart';
+import '../../presentation.dart';
 
 class AppDimen {
   AppDimen._({
@@ -19,9 +20,9 @@ class AppDimen {
   final ScreenType screenType;
 
   static AppDimen of(BuildContext context) {
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
-    final devicePixelRatio = MediaQuery.devicePixelRatioOf(context);
+    final screenWidth = context.wDevice;
+    final screenHeight = context.hDevice;
+    final devicePixelRatio = context.devicePixelRatio;
 
     final screen = AppDimen._(
       screenWidth: screenWidth,

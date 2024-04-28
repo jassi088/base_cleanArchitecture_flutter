@@ -10,13 +10,14 @@ class NotiItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: msg.isseen ? Colors.white : const Color.fromARGB(255, 189, 225, 255),
+      color: msg.isseen ? Colors.white : AppColors.current.primaryColor,
       child: ListTile(
         title: Text(
           'Cảnh báo! - ${msg.time} 🗓️',
-          style: TextStyle(fontSize: 18.rps, fontWeight: FontWeight.bold),
+          style: AppTextStyles.s14w400Primary()
+              .copyWith(fontSize: 18.rps, fontWeight: FontWeight.bold),
         ),
-        subtitle: Text(msg.body),
+        subtitle: Text(msg.body, style: AppTextStyles.s14w400Primary()),
       ),
     );
   }

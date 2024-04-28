@@ -106,4 +106,4 @@
 
 ## MIT License
 
-Copyright (c) 2024 BuzzLP
+Copyright (c) 2024 buzzlp

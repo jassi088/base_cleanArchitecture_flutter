@@ -10,12 +10,12 @@ class AppUsecase {
 
   AppUsecase(this._appRepository, this._navigator);
 
-  bool get getInitialAppDataUseCase => _appRepository.isDarkMode && _appRepository.isLoggedIn;
-
   // bool get getInitialHomeDataUseCase =>
   //     !_appRepository.isLoggedIn && _appRepository.isFirstLaunchApp;
 
   bool get isLoggedInUseCase => _appRepository.isLoggedIn;
+
+  bool get isDarkModeUseCase => _appRepository.isDarkMode;
 
   List<InitialAppRoute> get loadInitialResourceUseCase =>
       [_appRepository.isLoggedIn ? InitialAppRoute.main : InitialAppRoute.login];
@@ -33,7 +33,7 @@ class AppUsecase {
   }
 
   Future<void> clearCurrentUserDataUseCase() async {
-    return await _appRepository.clearCurrentUserData();
+    await _appRepository.clearCurrentUserData();
   }
 
   Future<void> logoutUseCase(PageRouteInfo loginRoute) async {
