@@ -23,12 +23,12 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
       hideKeyboardWhenTouchOutside: true,
       appBar: CommonAppBar(
         leadingIcon: navigator.canPopSelfOrChildren ? LeadingIcon.close : LeadingIcon.none,
-        leadingIconColor: AppColors.current.secondaryColor,
+        leadingIconColor: context.theme.colorScheme.secondary,
         titleType: AppBarTitle.text,
         centerTitle: true,
         text: 'Login',
-        backgroundColor: AppColors.current.primaryColor,
-        titleTextStyle: AppTextStyles.s14w400Primary(),
+        backgroundColor: context.theme.colorScheme.primary,
+        titleTextStyle: context.textTheme.labelMedium,
       ),
       body: Center(
         child: SafeArea(
@@ -81,9 +81,10 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                   buildWhen: (previous, current) => previous.onPageError != current.onPageError,
                   builder: (_, state) => Text(
                     state.onPageError,
-                    style: AppTextStyles.s14w400Secondary(),
+                    style: context.textTheme.labelMedium!.copyWith(color: AppColors.purple),
                   ),
                 ),
+                SizedBox(height: 10.rps),
                 BlocBuilder<LoginBloc, LoginState>(
                   buildWhen: (previous, current) =>
                       previous.isLoginButtonEnabled != current.isLoginButtonEnabled,
@@ -91,10 +92,10 @@ class _LoginPageState extends BasePageState<LoginPage, LoginBloc> {
                     return ElevatedButton(
                       onPressed: state.isLoginButtonEnabled ? _onLogin : null,
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(AppColors.current.primaryColor
+                        backgroundColor: MaterialStateProperty.all(context.theme.colorScheme.primary
                             .withOpacity(state.isLoginButtonEnabled ? 1 : 0.5)),
                       ),
-                      child: Text('Login', style: AppTextStyles.s14w400Primary()),
+                      child: Text('Login', style: context.textTheme.labelMedium),
                     );
                   },
                 ),

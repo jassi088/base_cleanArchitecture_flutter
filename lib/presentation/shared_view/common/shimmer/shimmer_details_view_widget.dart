@@ -8,7 +8,7 @@ class ShimmerDetailsViewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GradientContainerWidget(
-      colors: AppColorsUtils.backgroundGradient,
+      colors: AppColors.backgroundGradient,
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       width: MediaQuery.of(context).size.width,

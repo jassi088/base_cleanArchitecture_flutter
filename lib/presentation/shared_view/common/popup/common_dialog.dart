@@ -26,19 +26,19 @@ class CommonDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (commonPopupType) {
       case PopupType.android:
-        return _buildAndroidDialog();
+        return _buildAndroidDialog(context);
       case PopupType.ios:
-        return _buildIosDialog();
+        return _buildIosDialog(context);
       case PopupType.adaptive:
         return kIsWeb
-            ? _buildAndroidDialog()
+            ? _buildAndroidDialog(context)
             : Platform.isIOS
-                ? _buildIosDialog()
-                : _buildAndroidDialog();
+                ? _buildIosDialog(context)
+                : _buildAndroidDialog(context);
     }
   }
 
-  Widget _buildAndroidDialog() {
+  Widget _buildAndroidDialog(BuildContext context) {
     return AlertDialog(
       actions: actions
           .map((e) => TextButton(
@@ -46,17 +46,18 @@ class CommonDialog extends StatelessWidget {
                 child: Text(
                   e.text ?? 'OK',
                   style: e.isDefault
-                      ? AppTextStyles.s14w400Secondary()
-                      : AppTextStyles.s14w400Primary(),
+                      ? context.textTheme.labelMedium!
+                          .copyWith(color: context.theme.colorScheme.primary)
+                      : context.textTheme.labelMedium,
                 ),
               ))
           .toList(growable: false),
-      title: title != null ? Text(title ?? '', style: AppTextStyles.s14w400Primary()) : null,
-      content: message != null ? Text(message ?? '', style: AppTextStyles.s14w400Primary()) : null,
+      title: title != null ? Text(title ?? '', style: context.textTheme.labelMedium) : null,
+      content: message != null ? Text(message ?? '', style: context.textTheme.labelMedium) : null,
     );
   }
 
-  Widget _buildIosDialog() {
+  Widget _buildIosDialog(BuildContext context) {
     return CupertinoAlertDialog(
       actions: actions
           .map((e) => CupertinoDialogAction(
@@ -64,13 +65,14 @@ class CommonDialog extends StatelessWidget {
                 child: Text(
                   e.text ?? 'OK',
                   style: e.isDefault
-                      ? AppTextStyles.s14w400Secondary()
-                      : AppTextStyles.s14w400Primary(),
+                      ? context.textTheme.labelMedium!
+                          .copyWith(color: context.theme.colorScheme.primary)
+                      : context.textTheme.labelMedium,
                 ),
               ))
           .toList(growable: false),
-      title: title != null ? Text(title ?? '', style: AppTextStyles.s14w400Primary()) : null,
-      content: message != null ? Text(message ?? '', style: AppTextStyles.s14w400Primary()) : null,
+      title: title != null ? Text(title ?? '', style: context.textTheme.labelMedium) : null,
+      content: message != null ? Text(message ?? '', style: context.textTheme.labelMedium) : null,
     );
   }
 }

@@ -68,6 +68,7 @@ class _NotiPageState extends BasePageState<NotiPage, NotiBloc> {
 
                 return completer.future;
               },
+              color: AppColors.purple,
               child: state.isShimmerLoading
                   ? const _ListViewLoader()
                   : CommonPagedListView<Msg>(

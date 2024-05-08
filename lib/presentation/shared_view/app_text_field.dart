@@ -30,7 +30,10 @@ class AppTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: AppTextStyles.s14w400Secondary()),
+        Text(
+          title,
+          style: context.textTheme.labelMedium!.copyWith(color: context.theme.colorScheme.primary),
+        ),
         SizedBox(height: 8.rps),
         TextFormField(
           onTap: onTap,
@@ -39,6 +42,7 @@ class AppTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(hintText: hintText, border: const OutlineInputBorder()),
           keyboardType: keyboardType,
+          style: context.textTheme.labelMedium,
         ),
       ],
     );

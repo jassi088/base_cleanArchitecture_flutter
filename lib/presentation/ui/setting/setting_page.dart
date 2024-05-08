@@ -23,18 +23,15 @@ class _SettingPageState extends BasePageState<SettingPage, SettingBloc> {
           children: [
             ElevatedButton(
               onPressed: () => bloc.add(const LogoutButtonPressed()),
-              // style: ButtonStyle(
-              //   backgroundColor: MaterialStateProperty.all(AppColors.current.primaryColor),
-              // ),
-              child: Text('Logout', style: AppTextStyles.s14w400Primary()),
+              child: Text('Logout', style: context.textTheme.labelMedium),
             ),
             SizedBox(height: 15.rps),
             BlocBuilder<AppBloc, AppState>(
               buildWhen: (previous, current) => previous.isDarkTheme != current.isDarkTheme,
               builder: (context, state) {
                 return SwitchListTile.adaptive(
-                  title: Text('Dark mode', style: AppTextStyles.s14w400Primary()),
-                  tileColor: AppColors.current.primaryColor,
+                  title: Text('Dark mode', style: context.textTheme.labelMedium),
+                  tileColor: context.theme.colorScheme.primary,
                   value: state.isDarkTheme,
                   onChanged: (isDarkTheme) => appBloc.add(
                     AppThemeChanged(isDarkTheme: isDarkTheme),

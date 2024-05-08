@@ -13,9 +13,7 @@ export 'navigation/routes/route_guard.dart';
 // resource
 export 'resource/design_system.dart';
 export 'resource/dimens/app_dimen.dart';
-export 'resource/styles/app_colors.dart';
-export 'resource/styles/app_text_styles.dart';
-export 'resource/styles/app_themes.dart';
+export 'resource/styles/themes.dart';
 // shared_view
 export 'shared_view/app_text_field.dart';
 export 'shared_view/common/common_app_bar.dart';
@@ -48,5 +46,3 @@ export 'ui/noti/bloc/noti.dart';
 export 'ui/noti/noti_page.dart';
 export 'ui/setting/bloc/setting.dart';
 export 'ui/setting/setting_page.dart';
-// utils
-export 'utils/app_colors_utils.dart';

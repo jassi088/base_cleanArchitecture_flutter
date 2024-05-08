@@ -35,10 +35,7 @@ abstract class BasePageState<T extends StatefulWidget, B extends BaseBloc> exten
 
   @override
   Widget build(BuildContext context) {
-    if (!isAppWidget) {
-      AppDimen.of(context);
-      AppColors.of(context);
-    }
+    if (isAppWidget) AppDimen.of(context);
 
     return Provider(
       create: (context) => navigator,

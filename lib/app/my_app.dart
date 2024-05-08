@@ -31,6 +31,8 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
 
   @override
   Widget buildPage(BuildContext context) {
+    final theme = ThemeData();
+
     return ScreenUtilInit(
       designSize: const Size(Constants.designDeviceWidth, Constants.designDeviceHeight),
       builder: (context, _) => BlocBuilder<AppBloc, AppState>(
@@ -56,8 +58,8 @@ class _MyAppState extends BasePageState<MyApp, AppBloc> {
             title: UiConstants.materialAppTitle,
             color: UiConstants.taskMenuMaterialAppColor,
             themeMode: state.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-            theme: lightTheme,
-            darkTheme: darkTheme,
+            theme: theme.getTheme(Brightness.light),
+            darkTheme: theme.getTheme(Brightness.dark),
             debugShowCheckedModeBanner: false,
             // localeResolutionCallback: (Locale? locale, Iterable<Locale> supportedLocales) =>
             //     supportedLocales.contains(locale)
